@@ -11,7 +11,7 @@ var Intrinsics = new[]
     new
     {
         Name = "Abort",
-        HlslName = "abort",
+        BuiltInName = "abort",
         Summary = "Submits an error message to the information queue and terminates the current draw or dispatch call being executed.",
         Remarks = "This operation does nothing on rasterizers that do not support it.",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/abort",
@@ -24,13 +24,13 @@ var Intrinsics = new[]
     new
     {
         Name = "Clip",
-        HlslName = "clip",
+        BuiltInName = "clip",
         Summary = "Discards the current pixel if the specified value is less than zero.",
         Remarks = @"
             <para>Use the clip HLSL intrinsic function to simulate clipping planes if each component of the x parameter represents the distance from a plane.</para>
             <para>Also, use the clip function to test for alpha behavior, as shown in the following example:</para>
             <code>
-            Hlsl.Clip(color.A &lt; 0.1f ? -1 : 1);
+            BuiltIn.Clip(color.A &lt; 0.1f ? -1 : 1);
             </code>",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-clip",
         Parameters = new[]
@@ -64,7 +64,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedAdd",
-        HlslName = "InterlockedAdd",
+        BuiltInName = "InterlockedAdd",
         Summary = "Performs a guaranteed atomic add of a value to a destination.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedadd",
@@ -82,7 +82,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedAdd",
-        HlslName = "InterlockedAdd",
+        BuiltInName = "InterlockedAdd",
         Summary = "Performs a guaranteed atomic add of a value to a destination.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedadd",
@@ -101,7 +101,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedAnd",
-        HlslName = "InterlockedAnd",
+        BuiltInName = "InterlockedAnd",
         Summary = "Performs a guaranteed atomic and of a value to a destination.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedand",
@@ -119,7 +119,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedAnd",
-        HlslName = "InterlockedAnd",
+        BuiltInName = "InterlockedAnd",
         Summary = "Performs a guaranteed atomic and of a value to a destination.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedand",
@@ -138,7 +138,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedCompareExchange",
-        HlslName = "InterlockedCompareExchange",
+        BuiltInName = "InterlockedCompareExchange",
         Summary = @"
             Atomically compares the destination with the comparison value. If they are identical, the destination
             is overwritten with the input value. The original value is set to the destination's original value.",
@@ -160,7 +160,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedCompareStore",
-        HlslName = "InterlockedCompareStore",
+        BuiltInName = "InterlockedCompareStore",
         Summary = @"
             Atomically compares the destination to the comparison value. If they
             are identical, the destination is overwritten with the input value.",
@@ -181,7 +181,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedExchange",
-        HlslName = "InterlockedExchange",
+        BuiltInName = "InterlockedExchange",
         Summary = "Assigns value to dest and returns the original value.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedexchange",
@@ -200,7 +200,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedMax",
-        HlslName = "InterlockedMax",
+        BuiltInName = "InterlockedMax",
         Summary = "Performs a guaranteed atomic max.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedmax",
@@ -218,7 +218,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedMax",
-        HlslName = "InterlockedMax",
+        BuiltInName = "InterlockedMax",
         Summary = "Performs a guaranteed atomic max.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedmax",
@@ -237,7 +237,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedMin",
-        HlslName = "InterlockedMin",
+        BuiltInName = "InterlockedMin",
         Summary = "Performs a guaranteed atomic min.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedmin",
@@ -255,7 +255,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedMin",
-        HlslName = "InterlockedMin",
+        BuiltInName = "InterlockedMin",
         Summary = "Performs a guaranteed atomic min.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedmin",
@@ -274,7 +274,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedOr",
-        HlslName = "InterlockedOr",
+        BuiltInName = "InterlockedOr",
         Summary = "Performs a guaranteed atomic or.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedor",
@@ -292,7 +292,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedOr",
-        HlslName = "InterlockedOr",
+        BuiltInName = "InterlockedOr",
         Summary = "Performs a guaranteed atomic or.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedor",
@@ -311,7 +311,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedXor",
-        HlslName = "InterlockedXor",
+        BuiltInName = "InterlockedXor",
         Summary = "Performs a guaranteed atomic xor.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedxor",
@@ -329,7 +329,7 @@ var Intrinsics = new[]
     new
     {
         Name = "InterlockedXor",
-        HlslName = "InterlockedXor",
+        BuiltInName = "InterlockedXor",
         Summary = "Performs a guaranteed atomic xor.",
         Remarks = "",
         Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedxor",

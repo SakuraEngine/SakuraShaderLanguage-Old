@@ -1,4 +1,4 @@
-﻿<#@include file="Hlsl.ttinclude" #>
+﻿<#@include file="BuiltIn.ttinclude" #>
 using SKSL.Core.Intrinsics.Attributes;
 using SKSL.Exceptions;
 
@@ -6,8 +6,8 @@ using SKSL.Exceptions;
 
 namespace SKSL;
 
-/// <inheritdoc cref="Hlsl"/>
-partial class Hlsl
+/// <inheritdoc cref="BuiltIn"/>
+partial class BuiltIn
 {
 <#
 PushIndent("    ");
@@ -44,9 +44,9 @@ foreach (var intrinsic in Intrinsics)
         WriteLine("/// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>");
         WriteLine("/// </remarks>");
 
-        if (intrinsic.Name != intrinsic.HlslName)
+        if (intrinsic.Name != intrinsic.BuiltInName)
         {
-            WriteLine($"[HlslIntrinsicName(\"{intrinsic.HlslName}\")]");
+            WriteLine($"[BuiltInIntrinsicName(\"{intrinsic.BuiltInName}\")]");
         }
 
         Write($"public static {overload.Return} {intrinsic.Name}(");
@@ -59,7 +59,7 @@ foreach (var intrinsic in Intrinsics)
 
             var parameters = string.Join(", ", overload.Params.Select(t => $"{{typeof({t})}}"));
 
-            WriteLine($"$\"{{typeof(Hlsl)}}.{{nameof({intrinsic.Name})}}({parameters})\");");
+            WriteLine($"$\"{{typeof(BuiltIn)}}.{{nameof({intrinsic.Name})}}({parameters})\");");
         }
         else
         {

@@ -8,13 +8,13 @@ namespace SKSL.Core.Intrinsics.Attributes;
 /// </summary>
 [AttributeUsage(AttributeTargets.Method, AllowMultiple = true)]
 [Conditional("SOURCE_GENERATOR")]
-internal sealed class HlslIntrinsicNameAttribute : Attribute
+internal sealed class BuiltInIntrinsicNameAttribute : Attribute
 {
     /// <summary>
-    /// Creates a new <see cref="HlslIntrinsicNameAttribute"/> instance with the specified parameters.
+    /// Creates a new <see cref="BuiltInIntrinsicNameAttribute"/> instance with the specified parameters.
     /// </summary>
     /// <param name="name">The name of the HLSL intrinsic.</param>
-    public HlslIntrinsicNameAttribute(string name)
+    public BuiltInIntrinsicNameAttribute(string name)
     {
         Name = name;
     }

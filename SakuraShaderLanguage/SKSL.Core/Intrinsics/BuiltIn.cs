@@ -6,9 +6,9 @@ using SKSL.Exceptions;
 namespace SKSL;
 
 /// <summary>
-/// A <see langword="class"/> that maps the supported HLSL intrinsic functions that can be used in compute shaders.
+/// A <see langword="class"/> that maps the supported BuiltIn intrinsic functions that can be used in compute shaders.
 /// </summary>
-public static partial class Hlsl
+public static partial class BuiltIn
 {
     /// <summary>
     /// Blocks execution of all threads in a group until all memory accesses have been completed.
@@ -20,7 +20,7 @@ public static partial class Hlsl
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/allmemorybarrier"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    public static void AllMemoryBarrier() => throw new InvalidExecutionContextException($"{typeof(Hlsl)}.{nameof(AllMemoryBarrier)}()");
+    public static void AllMemoryBarrier() => throw new InvalidExecutionContextException($"{typeof(BuiltIn)}.{nameof(AllMemoryBarrier)}()");
 
     /// <summary>
     /// Blocks execution of all threads in a group until all memory accesses have been completed and all threads in the group have reached this call.
@@ -32,7 +32,7 @@ public static partial class Hlsl
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/allmemorybarrierwithgroupsync"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    public static void AllMemoryBarrierWithGroupSync() => throw new InvalidExecutionContextException($"{typeof(Hlsl)}.{nameof(AllMemoryBarrierWithGroupSync)}()");
+    public static void AllMemoryBarrierWithGroupSync() => throw new InvalidExecutionContextException($"{typeof(BuiltIn)}.{nameof(AllMemoryBarrierWithGroupSync)}()");
 
     /// <summary>
     /// Blocks execution of all threads in a group until all device memory accesses have been completed.
@@ -41,7 +41,7 @@ public static partial class Hlsl
     /// For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/devicememorybarrier"/>.
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    public static void DeviceMemoryBarrier() => throw new InvalidExecutionContextException($"{typeof(Hlsl)}.{nameof(DeviceMemoryBarrier)}()");
+    public static void DeviceMemoryBarrier() => throw new InvalidExecutionContextException($"{typeof(BuiltIn)}.{nameof(DeviceMemoryBarrier)}()");
 
     /// <summary>
     /// Blocks execution of all threads in a group until all device memory accesses have been completed and all threads in the group have reached this call.
@@ -50,7 +50,7 @@ public static partial class Hlsl
     /// For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/devicememorybarrierwithgroupsync"/>.
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    public static void DeviceMemoryBarrierWithGroupSync() => throw new InvalidExecutionContextException($"{typeof(Hlsl)}.{nameof(DeviceMemoryBarrierWithGroupSync)}()");
+    public static void DeviceMemoryBarrierWithGroupSync() => throw new InvalidExecutionContextException($"{typeof(BuiltIn)}.{nameof(DeviceMemoryBarrierWithGroupSync)}()");
 
     /// <summary>
     /// Blocks execution of all threads in a group until all group shared accesses have been completed.
@@ -59,7 +59,7 @@ public static partial class Hlsl
     /// For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/groupmemorybarrier"/>.
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    public static void GroupMemoryBarrier() => throw new InvalidExecutionContextException($"{typeof(Hlsl)}.{nameof(GroupMemoryBarrier)}()");
+    public static void GroupMemoryBarrier() => throw new InvalidExecutionContextException($"{typeof(BuiltIn)}.{nameof(GroupMemoryBarrier)}()");
 
     /// <summary>
     /// Blocks execution of all threads in a group until all group shared accesses have been completed and all threads in the group have reached this call.
@@ -68,7 +68,7 @@ public static partial class Hlsl
     /// For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/groupmemorybarrierwithgroupsync"/>.
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    public static void GroupMemoryBarrierWithGroupSync() => throw new InvalidExecutionContextException($"{typeof(Hlsl)}.{nameof(GroupMemoryBarrierWithGroupSync)}()");
+    public static void GroupMemoryBarrierWithGroupSync() => throw new InvalidExecutionContextException($"{typeof(BuiltIn)}.{nameof(GroupMemoryBarrierWithGroupSync)}()");
 
     /// <summary>
     /// Returns a lighting coefficient vector.
@@ -88,6 +88,6 @@ public static partial class Hlsl
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-lit"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("lit")]
+    [BuiltInIntrinsicName("lit")]
     public static float Lit(float nDotL, float nDotH, float m) => default;
 }

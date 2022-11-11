@@ -395,11 +395,11 @@ public unsafe partial struct Float1x2
     /// <param name="y">The second Float2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x2, Float2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x2, Float2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static float operator *(Float1x2 x, Float2 y) => default;
 
     /// <summary>
@@ -409,11 +409,11 @@ public unsafe partial struct Float1x2
     /// <param name="y">The second Float1x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x1, Float1x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x1, Float1x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x2 operator *(Float1x1 x, Float1x2 y) => default;
 
     /// <summary>
@@ -423,11 +423,11 @@ public unsafe partial struct Float1x2
     /// <param name="y">The second Float2x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x2, Float2x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x2, Float2x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x1 operator *(Float1x2 x, Float2x1 y) => default;
 
     /// <summary>
@@ -437,11 +437,11 @@ public unsafe partial struct Float1x2
     /// <param name="y">The second Float2x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x2, Float2x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x2, Float2x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x2 operator *(Float1x2 x, Float2x2 y) => default;
 
     /// <summary>
@@ -451,11 +451,11 @@ public unsafe partial struct Float1x2
     /// <param name="y">The second Float2x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x2, Float2x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x2, Float2x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x3 operator *(Float1x2 x, Float2x3 y) => default;
 
     /// <summary>
@@ -465,11 +465,11 @@ public unsafe partial struct Float1x2
     /// <param name="y">The second Float2x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x2, Float2x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x2, Float2x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x4 operator *(Float1x2 x, Float2x4 y) => default;
 
     /// <summary>
@@ -724,11 +724,11 @@ public unsafe partial struct Float1x3
     /// <param name="y">The second Float3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x3, Float3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x3, Float3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static float operator *(Float1x3 x, Float3 y) => default;
 
     /// <summary>
@@ -738,11 +738,11 @@ public unsafe partial struct Float1x3
     /// <param name="y">The second Float1x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x1, Float1x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x1, Float1x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x3 operator *(Float1x1 x, Float1x3 y) => default;
 
     /// <summary>
@@ -752,11 +752,11 @@ public unsafe partial struct Float1x3
     /// <param name="y">The second Float3x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x3, Float3x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x3, Float3x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x1 operator *(Float1x3 x, Float3x1 y) => default;
 
     /// <summary>
@@ -766,11 +766,11 @@ public unsafe partial struct Float1x3
     /// <param name="y">The second Float3x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x3, Float3x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x3, Float3x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x2 operator *(Float1x3 x, Float3x2 y) => default;
 
     /// <summary>
@@ -780,11 +780,11 @@ public unsafe partial struct Float1x3
     /// <param name="y">The second Float3x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x3, Float3x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x3, Float3x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x3 operator *(Float1x3 x, Float3x3 y) => default;
 
     /// <summary>
@@ -794,11 +794,11 @@ public unsafe partial struct Float1x3
     /// <param name="y">The second Float3x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x3, Float3x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x3, Float3x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x4 operator *(Float1x3 x, Float3x4 y) => default;
 
     /// <summary>
@@ -1065,11 +1065,11 @@ public unsafe partial struct Float1x4
     /// <param name="y">The second Float4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x4, Float4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x4, Float4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static float operator *(Float1x4 x, Float4 y) => default;
 
     /// <summary>
@@ -1079,11 +1079,11 @@ public unsafe partial struct Float1x4
     /// <param name="y">The second Float1x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x1, Float1x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x1, Float1x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x4 operator *(Float1x1 x, Float1x4 y) => default;
 
     /// <summary>
@@ -1093,11 +1093,11 @@ public unsafe partial struct Float1x4
     /// <param name="y">The second Float4x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x4, Float4x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x4, Float4x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x1 operator *(Float1x4 x, Float4x1 y) => default;
 
     /// <summary>
@@ -1107,11 +1107,11 @@ public unsafe partial struct Float1x4
     /// <param name="y">The second Float4x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x4, Float4x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x4, Float4x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x2 operator *(Float1x4 x, Float4x2 y) => default;
 
     /// <summary>
@@ -1121,11 +1121,11 @@ public unsafe partial struct Float1x4
     /// <param name="y">The second Float4x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x4, Float4x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x4, Float4x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x3 operator *(Float1x4 x, Float4x3 y) => default;
 
     /// <summary>
@@ -1135,11 +1135,11 @@ public unsafe partial struct Float1x4
     /// <param name="y">The second Float4x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float1x4, Float4x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float1x4, Float4x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float1x4 operator *(Float1x4 x, Float4x4 y) => default;
 
     /// <summary>
@@ -1382,11 +1382,11 @@ public unsafe partial struct Float2x1
     /// <param name="y">The second Float1x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x1, Float1x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x1, Float1x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x1 operator *(Float2x1 x, Float1x1 y) => default;
 
     /// <summary>
@@ -1396,11 +1396,11 @@ public unsafe partial struct Float2x1
     /// <param name="y">The second Float1x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x1, Float1x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x1, Float1x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x2 operator *(Float2x1 x, Float1x2 y) => default;
 
     /// <summary>
@@ -1410,11 +1410,11 @@ public unsafe partial struct Float2x1
     /// <param name="y">The second Float1x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x1, Float1x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x1, Float1x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x3 operator *(Float2x1 x, Float1x3 y) => default;
 
     /// <summary>
@@ -1424,11 +1424,11 @@ public unsafe partial struct Float2x1
     /// <param name="y">The second Float1x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x1, Float1x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x1, Float1x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x4 operator *(Float2x1 x, Float1x4 y) => default;
 
     /// <summary>
@@ -1438,11 +1438,11 @@ public unsafe partial struct Float2x1
     /// <param name="y">The second Float2x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x2, Float2x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x2, Float2x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x1 operator *(Float2x2 x, Float2x1 y) => default;
 
     /// <summary>
@@ -2012,11 +2012,11 @@ public unsafe partial struct Float2x3
     /// <param name="y">The second Float3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x3, Float3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x3, Float3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2 operator *(Float2x3 x, Float3 y) => default;
 
     /// <summary>
@@ -2026,11 +2026,11 @@ public unsafe partial struct Float2x3
     /// <param name="y">The second Float2x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x2, Float2x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x2, Float2x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x3 operator *(Float2x2 x, Float2x3 y) => default;
 
     /// <summary>
@@ -2040,11 +2040,11 @@ public unsafe partial struct Float2x3
     /// <param name="y">The second Float3x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x3, Float3x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x3, Float3x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x1 operator *(Float2x3 x, Float3x1 y) => default;
 
     /// <summary>
@@ -2054,11 +2054,11 @@ public unsafe partial struct Float2x3
     /// <param name="y">The second Float3x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x3, Float3x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x3, Float3x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x2 operator *(Float2x3 x, Float3x2 y) => default;
 
     /// <summary>
@@ -2068,11 +2068,11 @@ public unsafe partial struct Float2x3
     /// <param name="y">The second Float3x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x3, Float3x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x3, Float3x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x3 operator *(Float2x3 x, Float3x3 y) => default;
 
     /// <summary>
@@ -2082,11 +2082,11 @@ public unsafe partial struct Float2x3
     /// <param name="y">The second Float3x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x3, Float3x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x3, Float3x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x4 operator *(Float2x3 x, Float3x4 y) => default;
 
     /// <summary>
@@ -2412,11 +2412,11 @@ public unsafe partial struct Float2x4
     /// <param name="y">The second Float4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x4, Float4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x4, Float4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2 operator *(Float2x4 x, Float4 y) => default;
 
     /// <summary>
@@ -2426,11 +2426,11 @@ public unsafe partial struct Float2x4
     /// <param name="y">The second Float2x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x2, Float2x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x2, Float2x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x4 operator *(Float2x2 x, Float2x4 y) => default;
 
     /// <summary>
@@ -2440,11 +2440,11 @@ public unsafe partial struct Float2x4
     /// <param name="y">The second Float4x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x4, Float4x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x4, Float4x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x1 operator *(Float2x4 x, Float4x1 y) => default;
 
     /// <summary>
@@ -2454,11 +2454,11 @@ public unsafe partial struct Float2x4
     /// <param name="y">The second Float4x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x4, Float4x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x4, Float4x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x2 operator *(Float2x4 x, Float4x2 y) => default;
 
     /// <summary>
@@ -2468,11 +2468,11 @@ public unsafe partial struct Float2x4
     /// <param name="y">The second Float4x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x4, Float4x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x4, Float4x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x3 operator *(Float2x4 x, Float4x3 y) => default;
 
     /// <summary>
@@ -2482,11 +2482,11 @@ public unsafe partial struct Float2x4
     /// <param name="y">The second Float4x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float2x4, Float4x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float2x4, Float4x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float2x4 operator *(Float2x4 x, Float4x4 y) => default;
 
     /// <summary>
@@ -2735,11 +2735,11 @@ public unsafe partial struct Float3x1
     /// <param name="y">The second Float1x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x1, Float1x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x1, Float1x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x1 operator *(Float3x1 x, Float1x1 y) => default;
 
     /// <summary>
@@ -2749,11 +2749,11 @@ public unsafe partial struct Float3x1
     /// <param name="y">The second Float1x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x1, Float1x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x1, Float1x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x2 operator *(Float3x1 x, Float1x2 y) => default;
 
     /// <summary>
@@ -2763,11 +2763,11 @@ public unsafe partial struct Float3x1
     /// <param name="y">The second Float1x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x1, Float1x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x1, Float1x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x3 operator *(Float3x1 x, Float1x3 y) => default;
 
     /// <summary>
@@ -2777,11 +2777,11 @@ public unsafe partial struct Float3x1
     /// <param name="y">The second Float1x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x1, Float1x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x1, Float1x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x4 operator *(Float3x1 x, Float1x4 y) => default;
 
     /// <summary>
@@ -2791,11 +2791,11 @@ public unsafe partial struct Float3x1
     /// <param name="y">The second Float3x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x3, Float3x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x3, Float3x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x1 operator *(Float3x3 x, Float3x1 y) => default;
 
     /// <summary>
@@ -3102,11 +3102,11 @@ public unsafe partial struct Float3x2
     /// <param name="y">The second Float2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x2, Float2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x2, Float2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3 operator *(Float3x2 x, Float2 y) => default;
 
     /// <summary>
@@ -3116,11 +3116,11 @@ public unsafe partial struct Float3x2
     /// <param name="y">The second Float2x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x2, Float2x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x2, Float2x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x1 operator *(Float3x2 x, Float2x1 y) => default;
 
     /// <summary>
@@ -3130,11 +3130,11 @@ public unsafe partial struct Float3x2
     /// <param name="y">The second Float2x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x2, Float2x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x2, Float2x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x2 operator *(Float3x2 x, Float2x2 y) => default;
 
     /// <summary>
@@ -3144,11 +3144,11 @@ public unsafe partial struct Float3x2
     /// <param name="y">The second Float2x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x2, Float2x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x2, Float2x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x3 operator *(Float3x2 x, Float2x3 y) => default;
 
     /// <summary>
@@ -3158,11 +3158,11 @@ public unsafe partial struct Float3x2
     /// <param name="y">The second Float2x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x2, Float2x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x2, Float2x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x4 operator *(Float3x2 x, Float2x4 y) => default;
 
     /// <summary>
@@ -3172,11 +3172,11 @@ public unsafe partial struct Float3x2
     /// <param name="y">The second Float3x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x3, Float3x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x3, Float3x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x2 operator *(Float3x3 x, Float3x2 y) => default;
 
     /// <summary>
@@ -3885,11 +3885,11 @@ public unsafe partial struct Float3x4
     /// <param name="y">The second Float4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x4, Float4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x4, Float4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3 operator *(Float3x4 x, Float4 y) => default;
 
     /// <summary>
@@ -3899,11 +3899,11 @@ public unsafe partial struct Float3x4
     /// <param name="y">The second Float3x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x3, Float3x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x3, Float3x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x4 operator *(Float3x3 x, Float3x4 y) => default;
 
     /// <summary>
@@ -3913,11 +3913,11 @@ public unsafe partial struct Float3x4
     /// <param name="y">The second Float4x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x4, Float4x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x4, Float4x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x1 operator *(Float3x4 x, Float4x1 y) => default;
 
     /// <summary>
@@ -3927,11 +3927,11 @@ public unsafe partial struct Float3x4
     /// <param name="y">The second Float4x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x4, Float4x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x4, Float4x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x2 operator *(Float3x4 x, Float4x2 y) => default;
 
     /// <summary>
@@ -3941,11 +3941,11 @@ public unsafe partial struct Float3x4
     /// <param name="y">The second Float4x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x4, Float4x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x4, Float4x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x3 operator *(Float3x4 x, Float4x3 y) => default;
 
     /// <summary>
@@ -3955,11 +3955,11 @@ public unsafe partial struct Float3x4
     /// <param name="y">The second Float4x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float3x4, Float4x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float3x4, Float4x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float3x4 operator *(Float3x4 x, Float4x4 y) => default;
 
     /// <summary>
@@ -4220,11 +4220,11 @@ public unsafe partial struct Float4x1
     /// <param name="y">The second Float1x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x1, Float1x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x1, Float1x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x1 operator *(Float4x1 x, Float1x1 y) => default;
 
     /// <summary>
@@ -4234,11 +4234,11 @@ public unsafe partial struct Float4x1
     /// <param name="y">The second Float1x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x1, Float1x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x1, Float1x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x2 operator *(Float4x1 x, Float1x2 y) => default;
 
     /// <summary>
@@ -4248,11 +4248,11 @@ public unsafe partial struct Float4x1
     /// <param name="y">The second Float1x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x1, Float1x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x1, Float1x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x3 operator *(Float4x1 x, Float1x3 y) => default;
 
     /// <summary>
@@ -4262,11 +4262,11 @@ public unsafe partial struct Float4x1
     /// <param name="y">The second Float1x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x1, Float1x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x1, Float1x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x4 operator *(Float4x1 x, Float1x4 y) => default;
 
     /// <summary>
@@ -4276,11 +4276,11 @@ public unsafe partial struct Float4x1
     /// <param name="y">The second Float4x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x4, Float4x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x4, Float4x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x1 operator *(Float4x4 x, Float4x1 y) => default;
 
     /// <summary>
@@ -4614,11 +4614,11 @@ public unsafe partial struct Float4x2
     /// <param name="y">The second Float2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x2, Float2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x2, Float2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4 operator *(Float4x2 x, Float2 y) => default;
 
     /// <summary>
@@ -4628,11 +4628,11 @@ public unsafe partial struct Float4x2
     /// <param name="y">The second Float2x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x2, Float2x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x2, Float2x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x1 operator *(Float4x2 x, Float2x1 y) => default;
 
     /// <summary>
@@ -4642,11 +4642,11 @@ public unsafe partial struct Float4x2
     /// <param name="y">The second Float2x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x2, Float2x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x2, Float2x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x2 operator *(Float4x2 x, Float2x2 y) => default;
 
     /// <summary>
@@ -4656,11 +4656,11 @@ public unsafe partial struct Float4x2
     /// <param name="y">The second Float2x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x2, Float2x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x2, Float2x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x3 operator *(Float4x2 x, Float2x3 y) => default;
 
     /// <summary>
@@ -4670,11 +4670,11 @@ public unsafe partial struct Float4x2
     /// <param name="y">The second Float2x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x2, Float2x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x2, Float2x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x4 operator *(Float4x2 x, Float2x4 y) => default;
 
     /// <summary>
@@ -4684,11 +4684,11 @@ public unsafe partial struct Float4x2
     /// <param name="y">The second Float4x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x4, Float4x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x4, Float4x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x2 operator *(Float4x4 x, Float4x2 y) => default;
 
     /// <summary>
@@ -5068,11 +5068,11 @@ public unsafe partial struct Float4x3
     /// <param name="y">The second Float3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x3, Float3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x3, Float3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4 operator *(Float4x3 x, Float3 y) => default;
 
     /// <summary>
@@ -5082,11 +5082,11 @@ public unsafe partial struct Float4x3
     /// <param name="y">The second Float3x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x3, Float3x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x3, Float3x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x1 operator *(Float4x3 x, Float3x1 y) => default;
 
     /// <summary>
@@ -5096,11 +5096,11 @@ public unsafe partial struct Float4x3
     /// <param name="y">The second Float3x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x3, Float3x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x3, Float3x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x2 operator *(Float4x3 x, Float3x2 y) => default;
 
     /// <summary>
@@ -5110,11 +5110,11 @@ public unsafe partial struct Float4x3
     /// <param name="y">The second Float3x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x3, Float3x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x3, Float3x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x3 operator *(Float4x3 x, Float3x3 y) => default;
 
     /// <summary>
@@ -5124,11 +5124,11 @@ public unsafe partial struct Float4x3
     /// <param name="y">The second Float3x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x3, Float3x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x3, Float3x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x4 operator *(Float4x3 x, Float3x4 y) => default;
 
     /// <summary>
@@ -5138,11 +5138,11 @@ public unsafe partial struct Float4x3
     /// <param name="y">The second Float4x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Float4x4, Float4x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Float4x4, Float4x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Float4x3 operator *(Float4x4 x, Float4x3 y) => default;
 
     /// <summary>

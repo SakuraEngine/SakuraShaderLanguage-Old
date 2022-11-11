@@ -1,4 +1,4 @@
-﻿<#@include file="Hlsl.Void.ttinclude" #>
+﻿<#@include file="BuiltIn.Void.ttinclude" #>
 using SKSL.Core.Intrinsics.Attributes;
 using SKSL.Exceptions;
 
@@ -6,8 +6,8 @@ using SKSL.Exceptions;
 
 namespace SKSL;
 
-/// <inheritdoc cref="Hlsl"/>
-partial class Hlsl
+/// <inheritdoc cref="BuiltIn"/>
+partial class BuiltIn
 {
 <#
 PushIndent("    ");
@@ -68,9 +68,9 @@ foreach (var intrinsic in Intrinsics)
             WriteLine("/// </remarks>");
         }
 
-        if (intrinsic.Name != intrinsic.HlslName)
+        if (intrinsic.Name != intrinsic.BuiltInName)
         {
-            WriteLine($"[HlslIntrinsicName(\"{intrinsic.HlslName}\")]");
+            WriteLine($"[BuiltInIntrinsicName(\"{intrinsic.BuiltInName}\")]");
         }
 
         Write($"public static void {intrinsic.Name}(");
@@ -81,7 +81,7 @@ foreach (var intrinsic in Intrinsics)
 
         var parameters = string.Join(", ", overload.Where(o => o.Length > 0).Select(t => $"{{typeof({t})}}"));
 
-        WriteLine($"$\"{{typeof(Hlsl)}}.{{nameof({intrinsic.Name})}}({parameters})\");");    
+        WriteLine($"$\"{{typeof(BuiltIn)}}.{{nameof({intrinsic.Name})}}({parameters})\");");    
     }
 }
 

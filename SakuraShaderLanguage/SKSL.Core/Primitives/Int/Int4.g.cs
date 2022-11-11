@@ -4937,11 +4937,11 @@ public unsafe partial struct Int4
     /// <param name="y">The second Int4x1 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Int4, Int4x1)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Int4, Int4x1)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static int operator *(Int4 x, Int4x1 y) => default;
 
     /// <summary>
@@ -4951,11 +4951,11 @@ public unsafe partial struct Int4
     /// <param name="y">The second Int4x2 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Int4, Int4x2)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Int4, Int4x2)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Int2 operator *(Int4 x, Int4x2 y) => default;
 
     /// <summary>
@@ -4965,11 +4965,11 @@ public unsafe partial struct Int4
     /// <param name="y">The second Int4x3 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Int4, Int4x3)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Int4, Int4x3)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Int3 operator *(Int4 x, Int4x3 y) => default;
 
     /// <summary>
@@ -4979,11 +4979,11 @@ public unsafe partial struct Int4
     /// <param name="y">The second Int4x4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Int4, Int4x4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Int4, Int4x4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Int4 operator *(Int4 x, Int4x4 y) => default;
 
     /// <summary>
@@ -4993,11 +4993,11 @@ public unsafe partial struct Int4
     /// <param name="y">The second Int4 input value.</param>
     /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
     /// <remarks>
-    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(Int4x4, Int4)"/> with the same input arguments.</para>
+    /// <para>This operator is equivalent to using <see cref="BuiltIn.Mul(Int4x4, Int4)"/> with the same input arguments.</para>
     /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
     /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
     /// </remarks>
-    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    [BuiltInIntrinsicName("mul", RequiresParametersMatching = true)]
     public static Int4 operator *(Int4x4 x, Int4 y) => default;
 
     /// <summary>
