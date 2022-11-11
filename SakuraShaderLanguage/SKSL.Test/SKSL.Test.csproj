@@ -15,4 +15,10 @@
     <PackageReference Include="coverlet.collector" Version="3.1.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SKSL.Core\SKSL.Core.csproj" />
+    <ProjectReference Include="..\SKSLC\SKSLC.csproj" />
+    <ProjectReference Include="..\SKSL\SKSL.csproj" />
+  </ItemGroup>
+
 </Project>
