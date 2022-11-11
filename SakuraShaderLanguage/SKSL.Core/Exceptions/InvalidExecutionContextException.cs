@@ -11,7 +11,7 @@ public sealed class InvalidExecutionContextException : InvalidOperationException
     /// Creates a new <see cref="InvalidExecutionContextException"/> instance.
     /// </summary>
     /// <param name="name">The name of the caller API.</param>
-    internal InvalidExecutionContextException(string name)
+    public InvalidExecutionContextException(string name)
         : base($"The API {name} can only be used from within an GPU shader.")
     {
     }
