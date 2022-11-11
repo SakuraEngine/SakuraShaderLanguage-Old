@@ -25,16 +25,16 @@ public unsafe partial struct UInt4
     private static readonly void* UndefinedData = (void*)RuntimeHelpers.AllocateTypeAssociatedMemory(typeof(UInt4), sizeof(UInt4));
 
     [FieldOffset(0)]
-    private uint x;
+    private uint h;
 
     [FieldOffset(4)]
-    private uint y;
+    private uint j;
 
     [FieldOffset(8)]
-    private uint z;
+    private uint k;
 
     [FieldOffset(12)]
-    private uint w;
+    private uint l;
 
     /// <summary>
     /// Gets a reference to a specific component in the current <see cref="UInt4"/> instance.
@@ -75,28 +75,48 @@ public unsafe partial struct UInt4
     public static UInt4 UnitW => new(0, 0, 0, 1);
 
     /// <summary>
+    /// Gets a <see cref="UInt4"/> value with the <see cref="x"/> component set to 1, and the others to 0.
+    /// </summary>
+    public static UInt4 Unitx => new(1, 0, 0, 0);
+
+    /// <summary>
+    /// Gets a <see cref="UInt4"/> value with the <see cref="y"/> component set to 1, and the others to 0.
+    /// </summary>
+    public static UInt4 Unity => new(0, 1, 0, 0);
+
+    /// <summary>
+    /// Gets a <see cref="UInt4"/> value with the <see cref="z"/> component set to 1, and the others to 0.
+    /// </summary>
+    public static UInt4 Unitz => new(0, 0, 1, 0);
+
+    /// <summary>
+    /// Gets a <see cref="UInt4"/> value with the <see cref="w"/> component set to 1, and the others to 0.
+    /// </summary>
+    public static UInt4 Unitw => new(0, 0, 0, 1);
+
+    /// <summary>
     /// Gets a reference to the <see cref="uint"/> value representing the <c>X</c> component.
     /// </summary>
     [UnscopedRef]
-    public ref uint X => ref this.x;
+    public ref uint X => ref this.h;
 
     /// <summary>
     /// Gets a reference to the <see cref="uint"/> value representing the <c>Y</c> component.
     /// </summary>
     [UnscopedRef]
-    public ref uint Y => ref this.y;
+    public ref uint Y => ref this.j;
 
     /// <summary>
     /// Gets a reference to the <see cref="uint"/> value representing the <c>Z</c> component.
     /// </summary>
     [UnscopedRef]
-    public ref uint Z => ref this.z;
+    public ref uint Z => ref this.k;
 
     /// <summary>
     /// Gets a reference to the <see cref="uint"/> value representing the <c>W</c> component.
     /// </summary>
     [UnscopedRef]
-    public ref uint W => ref this.w;
+    public ref uint W => ref this.l;
 
     /// <summary>
     /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="X"/>, <see cref="X"/>.
@@ -2454,25 +2474,25 @@ public unsafe partial struct UInt4
     /// Gets a reference to the <see cref="uint"/> value representing the <c>R</c> component.
     /// </summary>
     [UnscopedRef]
-    public ref uint R => ref this.x;
+    public ref uint R => ref this.h;
 
     /// <summary>
     /// Gets a reference to the <see cref="uint"/> value representing the <c>G</c> component.
     /// </summary>
     [UnscopedRef]
-    public ref uint G => ref this.y;
+    public ref uint G => ref this.j;
 
     /// <summary>
     /// Gets a reference to the <see cref="uint"/> value representing the <c>B</c> component.
     /// </summary>
     [UnscopedRef]
-    public ref uint B => ref this.z;
+    public ref uint B => ref this.k;
 
     /// <summary>
     /// Gets a reference to the <see cref="uint"/> value representing the <c>A</c> component.
     /// </summary>
     [UnscopedRef]
-    public ref uint A => ref this.w;
+    public ref uint A => ref this.l;
 
     /// <summary>
     /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="R"/>, <see cref="R"/>.
@@ -4826,6 +4846,4758 @@ public unsafe partial struct UInt4
     [UnscopedRef]
     public readonly ref readonly UInt4 AAAA => ref *(UInt4*)UndefinedData;
 
+    /// <summary>
+    /// Gets a reference to the <see cref="uint"/> value representing the <c>x</c> component.
+    /// </summary>
+    [UnscopedRef]
+    public ref uint x => ref this.h;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="uint"/> value representing the <c>y</c> component.
+    /// </summary>
+    [UnscopedRef]
+    public ref uint y => ref this.j;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="uint"/> value representing the <c>z</c> component.
+    /// </summary>
+    [UnscopedRef]
+    public ref uint z => ref this.k;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="uint"/> value representing the <c>w</c> component.
+    /// </summary>
+    [UnscopedRef]
+    public ref uint w => ref this.l;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt2 xx => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 xy => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 xz => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 xw => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 yx => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt2 yy => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 yz => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 yw => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 zx => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 zy => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt2 zz => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 zw => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 wx => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 wy => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 wz => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt2 ww => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xxx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xxy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xxz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xxw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xyx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xyy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 xyz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 xyw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xzx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 xzy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xzz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 xzw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xwx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 xwy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 xwz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 xww => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yxx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yxy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 yxz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 yxw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yyx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yyy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yyz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yyw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 yzx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yzy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yzz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 yzw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 ywx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 ywy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 ywz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 yww => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zxx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 zxy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zxz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 zxw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 zyx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zyy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zyz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 zyw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zzx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zzy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zzz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zzw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 zwx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 zwy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zwz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 zww => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wxx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 wxy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 wxz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wxw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 wyx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wyy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 wyz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wyw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 wzx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 wzy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wzz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wzw => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wwx => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wwy => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 wwz => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 www => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="x"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xxww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 xyzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xywx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xywy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 xywz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="y"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xyww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 xzyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 xzwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="z"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xzww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 xwyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 xwzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="x"/>, <see cref="w"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 xwww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 yxzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 yxwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="x"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yxww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yywx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yywy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yywz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="y"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yyww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 yzxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 yzwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="z"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 yzww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 ywxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 ywzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="y"/>, <see cref="w"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ywww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 zxyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 zxwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="x"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zxww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 zyxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 zywx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zywy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zywz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="y"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zyww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="z"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zzww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 zwxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 zwyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="z"/>, <see cref="w"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 zwww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 wxyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 wxzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="x"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wxww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 wyxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 wyzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wywx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wywy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wywz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="y"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wyww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 wzxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 wzyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="z"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wzww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="x"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwxx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="x"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwxy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="x"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwxz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="x"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwxw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="y"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwyx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="y"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwyy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="y"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwyz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="y"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwyw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="z"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwzx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="z"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwzy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="z"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwzz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="z"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwzw => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="w"/>, <see cref="x"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwwx => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="w"/>, <see cref="y"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwwy => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="w"/>, <see cref="z"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwwz => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="w"/>, <see cref="w"/>, <see cref="w"/>, <see cref="w"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 wwww => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="uint"/> value representing the <c>r</c> component.
+    /// </summary>
+    [UnscopedRef]
+    public ref uint r => ref this.h;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="uint"/> value representing the <c>g</c> component.
+    /// </summary>
+    [UnscopedRef]
+    public ref uint g => ref this.j;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="uint"/> value representing the <c>b</c> component.
+    /// </summary>
+    [UnscopedRef]
+    public ref uint b => ref this.k;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="uint"/> value representing the <c>a</c> component.
+    /// </summary>
+    [UnscopedRef]
+    public ref uint a => ref this.l;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt2 rr => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 rg => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 rb => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 ra => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 gr => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt2 gg => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 gb => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 ga => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 br => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 bg => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt2 bb => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 ba => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 ar => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 ag => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt2"/> value with the components <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt2 ab => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt2"/> value with the components <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt2 aa => ref *(UInt2*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rrr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rrg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rrb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rra => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rgr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rgg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 rgb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 rga => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rbr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 rbg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rbb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 rba => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 rar => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 rag => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 rab => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 raa => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 grr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 grg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 grb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 gra => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 ggr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 ggg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 ggb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 gga => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 gbr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 gbg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 gbb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 gba => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 gar => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 gag => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 gab => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 gaa => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 brr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 brg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 brb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 bra => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 bgr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 bgg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 bgb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 bga => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 bbr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 bbg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 bbb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 bba => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 bar => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 bag => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 bab => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 baa => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 arr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 arg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 arb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 ara => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 agr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 agg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 agb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 aga => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 abr => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt3 abg => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 abb => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 aba => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 aar => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 aag => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 aab => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt3"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt3 aaa => ref *(UInt3*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrgr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrgg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrgb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rrab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="r"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rraa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rggr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rggg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rggb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 rgba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 rgab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="g"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rgaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbgr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbgg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbgb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 rbga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 rbag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="b"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rbaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rarr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rarg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rarb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rara => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ragr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ragg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 ragb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 raga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rabr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 rabg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 rabb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 raba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 raar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 raag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 raab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="r"/>, <see cref="a"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 raaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grgr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grgg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grgb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 grba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 grag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 grab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="r"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 graa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gggr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gggg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gggb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="g"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 ggaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 gbra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbgr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbgg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbgb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 gbar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="b"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gbaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 garr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 garg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 garb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gara => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gagr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gagg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gagb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gaga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 gabr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gabg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gabb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gaba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gaar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gaag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gaab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="g"/>, <see cref="a"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 gaaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brgr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brgg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brgb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 brga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 brag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 brab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="r"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 braa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 bgra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bggr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bggg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bggb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 bgar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="g"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bgaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbgr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbgg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbgb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="b"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bbaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 barr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 barg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 barb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bara => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 bagr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bagg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 bagb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 baga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 babr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 babg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 babb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 baba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 baar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 baag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 baab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="b"/>, <see cref="a"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 baaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 argr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 argg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 argb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 arbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 arab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="r"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 araa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 agrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aggr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aggg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aggb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 agbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="g"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 agaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abrr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 abrg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abrb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abra => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public ref UInt4 abgr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abgg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abgb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abbr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abbg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abbb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="b"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 abaa => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="r"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aarr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="r"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aarg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="r"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aarb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="r"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aara => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="g"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aagr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="g"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aagg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="g"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aagb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="g"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aaga => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="b"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aabr => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="b"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aabg => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="b"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aabb => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="b"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aaba => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="a"/>, <see cref="r"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aaar => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="a"/>, <see cref="g"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aaag => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="a"/>, <see cref="b"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aaab => ref *(UInt4*)UndefinedData;
+
+    /// <summary>
+    /// Gets a readonly reference to the <see cref="UInt4"/> value with the components <see cref="a"/>, <see cref="a"/>, <see cref="a"/>, <see cref="a"/>.
+    /// </summary>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    [UnscopedRef]
+    public readonly ref readonly UInt4 aaaa => ref *(UInt4*)UndefinedData;
+
 #if !SOURCE_GENERATOR
 
     /// <inheritdoc/>
@@ -4834,9 +9606,9 @@ public unsafe partial struct UInt4
         string separator = NumberFormatInfo.CurrentInfo.NumberGroupSeparator;
 
 #if NET6_0_OR_GREATER
-        return string.Create(null, stackalloc char[64], $"<{this.x}{separator} {this.y}{separator} {this.z}{separator} {this.w}>");
+        return string.Create(null, stackalloc char[64], $"<{this.h}{separator} {this.j}{separator} {this.k}{separator} {this.l}>");
 #else
-        return $"<{this.x}{separator} {this.y}{separator} {this.z}{separator} {this.w}>";
+        return $"<{this.h}{separator} {this.j}{separator} {this.k}{separator} {this.l}>";
 #endif
     }
 
@@ -4849,7 +9621,7 @@ public unsafe partial struct UInt4
             format,
             formatProvider,
             stackalloc char[64],
-            $"<{this.x}{separator} {this.y}{separator} {this.z}{separator} {this.w}>");
+            $"<{this.h}{separator} {this.j}{separator} {this.k}{separator} {this.l}>");
     }
 
     /// <inheritdoc/>
@@ -4861,7 +9633,7 @@ public unsafe partial struct UInt4
             destination,
             format,
             provider,
-            $"<{this.x}{separator} {this.y}{separator} {this.z}{separator} {this.w}>",
+            $"<{this.h}{separator} {this.j}{separator} {this.k}{separator} {this.l}>",
             out charsWritten);
     }
 
@@ -4951,46 +9723,46 @@ public unsafe partial struct UInt4
     /// <summary>
     /// Bitwise negates a <see cref="UInt4"/> value.
     /// </summary>
-    /// <param name="xyzw">The <see cref="UInt4"/> value to bitwise negate.</param>
-    /// <returns>The bitwise negated value of <paramref name="xyzw"/>.</returns>
+    /// <param name="hjkl">The <see cref="UInt4"/> value to bitwise negate.</param>
+    /// <returns>The bitwise negated value of <paramref name="hjkl"/>.</returns>
     /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
-    public static UInt4 operator ~(UInt4 xyzw) => default;
+    public static UInt4 operator ~(UInt4 hjkl) => default;
 
     /// <summary>
     /// Shifts right a <see cref="UInt4"/> value.
     /// </summary>
-    /// <param name="xyzw">The <see cref="UInt4"/> value to shift right.</param>
+    /// <param name="hjkl">The <see cref="UInt4"/> value to shift right.</param>
     /// <param name="amount">The amount to shift each element right by.</param>
-    /// <returns>The result of shifting <paramref name="xyzw"/> right by <paramref name="amount"/>.</returns>
+    /// <returns>The result of shifting <paramref name="hjkl"/> right by <paramref name="amount"/>.</returns>
     /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
-    public static UInt4 operator >>(UInt4 xyzw, Int4 amount) => default;
+    public static UInt4 operator >>(UInt4 hjkl, Int4 amount) => default;
 
     /// <summary>
     /// Shifts right a <see cref="UInt4"/> value.
     /// </summary>
-    /// <param name="xyzw">The <see cref="UInt4"/> value to shift right.</param>
+    /// <param name="hjkl">The <see cref="UInt4"/> value to shift right.</param>
     /// <param name="amount">The amount to shift each element right by.</param>
-    /// <returns>The result of shifting <paramref name="xyzw"/> right by <paramref name="amount"/>.</returns>
+    /// <returns>The result of shifting <paramref name="hjkl"/> right by <paramref name="amount"/>.</returns>
     /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
-    public static UInt4 operator >>(UInt4 xyzw, UInt4 amount) => default;
+    public static UInt4 operator >>(UInt4 hjkl, UInt4 amount) => default;
 
     /// <summary>
     /// Shifts left a <see cref="UInt4"/> value.
     /// </summary>
-    /// <param name="xyzw">The <see cref="UInt4"/> value to shift left.</param>
+    /// <param name="hjkl">The <see cref="UInt4"/> value to shift left.</param>
     /// <param name="amount">The amount to shift each element left by.</param>
-    /// <returns>The result of shifting <paramref name="xyzw"/> left by <paramref name="amount"/>.</returns>
+    /// <returns>The result of shifting <paramref name="hjkl"/> left by <paramref name="amount"/>.</returns>
     /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
-    public static UInt4 operator <<(UInt4 xyzw, Int4 amount) => default;
+    public static UInt4 operator <<(UInt4 hjkl, Int4 amount) => default;
 
     /// <summary>
     /// Shifts left a <see cref="UInt4"/> value.
     /// </summary>
-    /// <param name="xyzw">The <see cref="UInt4"/> value to shift left.</param>
+    /// <param name="hjkl">The <see cref="UInt4"/> value to shift left.</param>
     /// <param name="amount">The amount to shift each element left by.</param>
-    /// <returns>The result of shifting <paramref name="xyzw"/> left by <paramref name="amount"/>.</returns>
+    /// <returns>The result of shifting <paramref name="hjkl"/> left by <paramref name="amount"/>.</returns>
     /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
-    public static UInt4 operator <<(UInt4 xyzw, UInt4 amount) => default;
+    public static UInt4 operator <<(UInt4 hjkl, UInt4 amount) => default;
 
     /// <summary>
     /// Bitwise ands a <see cref="UInt4"/> value.

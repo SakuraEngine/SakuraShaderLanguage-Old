@@ -108,9 +108,9 @@ public unsafe partial struct <#=typeName#>
     PushIndent("    ");
 
     // Generate the private fields
-    foreach (char name in "xyzw".Substring(0, i))
+    foreach (char name in "hjkl".Substring(0, i))
     {
-        WriteLine($"[FieldOffset({"xyzw".IndexOf(name) * elementSize})]");
+        WriteLine($"[FieldOffset({"hjkl".IndexOf(name) * elementSize})]");
         WriteLine($"private {fieldElementTypeName} {name};");
         WriteLine("");
     }
@@ -190,12 +190,27 @@ public unsafe partial struct <#=typeName#>
 <#
     }
 
+    // Generate the True<N> and Unit<N> properties
+    for (int j = 0; j < i; j++)
+    {
+        string unitComponentName = ("xyzw"[j]).ToString();
+        string[] unitArguments = Enumerable.Range(0, i).Select(x => x == j ? unitOne : unitZero).ToArray();
+        string unitArgumentExpression = string.Join(", ", unitArguments);
+#>
+
+    /// <summary>
+    /// Gets a <see cref="<#=typeName#>"/> value with the <see cref="<#=unitComponentName#>"/> component set to <#=unitOneXmlName#>, and the others to <#=unitZeroXmlName#>.
+    /// </summary>
+    public static <#=typeName#> <#=unitName#><#=unitComponentName#> => new(<#=unitArgumentExpression#>);
+<#
+    }
+
     PushIndent("    ");
 
     // Generate the combinatorial swizzling properties
     foreach (
         var propertyName in
-        from source in new[] { "XYZW", "RGBA" }
+        from source in new[] { "XYZW", "RGBA", "xyzw", "rgba" }
         let range = source.Substring(0, i)
         from name in EnumeratePropertyNames(range)
         select name)
@@ -213,7 +228,7 @@ public unsafe partial struct <#=typeName#>
             WriteLine($"/// Gets a reference to the <see cref=\"{propertyType}\"/> value representing the <c>{propertyName}</c> component.");
             WriteLine("/// </summary>");
 
-            char fieldName = "xyzw"["xyzwrgba".IndexOf(propertyName.ToLower()) % 4];
+            char fieldName = "hjkl"["xyzwrgba".IndexOf(propertyName.ToLower()) % 4];
 
             // Property
             WriteLine("[UnscopedRef]");
@@ -259,9 +274,9 @@ public unsafe partial struct <#=typeName#>
     public override readonly string ToString()
     {
 #if NET6_0_OR_GREATER
-        return string.Create(null, stackalloc char[32], $"<<#=string.Join(", ", "xyzw".Take(i).Select(c => $"{{this.{c} != 0}}"))#>>");
+        return string.Create(null, stackalloc char[32], $"<<#=string.Join(", ", "hjkl".Take(i).Select(c => $"{{this.{c} != 0}}"))#>>");
 #else
-        return $"<<#=string.Join(", ", "xyzw".Take(i).Select(c => $"{{this.{c} != 0}}"))#>>";
+        return $"<<#=string.Join(", ", "hjkl".Take(i).Select(c => $"{{this.{c} != 0}}"))#>>";
 #endif
     }
 <#
@@ -275,9 +290,9 @@ public unsafe partial struct <#=typeName#>
         string separator = NumberFormatInfo.CurrentInfo.NumberGroupSeparator;
 
 #if NET6_0_OR_GREATER
-        return string.Create(null, stackalloc char[64], $"<<#=string.Join("{separator} ", "xyzw".Take(i).Select(c => $"{{this.{c}}}"))#>>");
+        return string.Create(null, stackalloc char[64], $"<<#=string.Join("{separator} ", "hjkl".Take(i).Select(c => $"{{this.{c}}}"))#>>");
 #else
-        return $"<<#=string.Join("{separator} ", "xyzw".Take(i).Select(c => $"{{this.{c}}}"))#>>";
+        return $"<<#=string.Join("{separator} ", "hjkl".Take(i).Select(c => $"{{this.{c}}}"))#>>";
 #endif
     }
 
@@ -290,7 +305,7 @@ public unsafe partial struct <#=typeName#>
             format,
             formatProvider,
             stackalloc char[64],
-            $"<<#=string.Join("{separator} ", "xyzw".Take(i).Select(c => $"{{this.{c}}}"))#>>");
+            $"<<#=string.Join("{separator} ", "hjkl".Take(i).Select(c => $"{{this.{c}}}"))#>>");
     }
 
     /// <inheritdoc/>
@@ -302,7 +317,7 @@ public unsafe partial struct <#=typeName#>
             destination,
             format,
             provider,
-            $"<<#=string.Join("{separator} ", "xyzw".Take(i).Select(c => $"{{this.{c}}}"))#>>",
+            $"<<#=string.Join("{separator} ", "hjkl".Take(i).Select(c => $"{{this.{c}}}"))#>>",
             out charsWritten);
     }
 <#
@@ -317,7 +332,7 @@ public unsafe partial struct <#=typeName#>
     {
         WriteLine("");
 
-        string argumentName = "xyzw".Substring(0, i);
+        string argumentName = "hjkl".Substring(0, i);
         string operatorName = elementTypeName == "Bool" ? "!" : "-";
 #>
     /// <summary>
@@ -491,7 +506,7 @@ public unsafe partial struct <#=typeName#>
     // Generate the bitwise operators
     if (elementTypeName == "Int" || elementTypeName == "UInt")
     {
-        string argumentName = "xyzw".Substring(0, i);
+        string argumentName = "hjkl".Substring(0, i);
 
         WriteLine("");
 #>
@@ -596,7 +611,7 @@ public unsafe partial struct <#=typeName#>
     }
     else if (elementTypeName == "Bool")
     {
-        string argumentName = "xyzw".Substring(0, i);
+        string argumentName = "hjkl".Substring(0, i);
 
         WriteLine("");
 #>

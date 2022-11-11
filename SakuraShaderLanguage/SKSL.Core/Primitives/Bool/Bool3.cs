@@ -15,9 +15,9 @@ public partial struct Bool3
     /// <param name="z">The value to assign to the third vector component.</param>
     public Bool3(bool x, bool y, bool z)
     {
-        this.x = x ? 1 : 0;
-        this.y = y ? 1 : 0;
-        this.z = z ? 1 : 0;
+        this.h = x ? 1 : 0;
+        this.j = y ? 1 : 0;
+        this.k = z ? 1 : 0;
     }
 
     /// <summary>
@@ -27,9 +27,9 @@ public partial struct Bool3
     /// <param name="z">The value to assign to the third vector component.</param>
     public Bool3(Bool2 xy, bool z)
     {
-        this.x = xy.X ? 1 : 0;
-        this.y = xy.Y ? 1 : 0;
-        this.z = z ? 1 : 0;
+        this.h = xy.X ? 1 : 0;
+        this.j = xy.Y ? 1 : 0;
+        this.k = z ? 1 : 0;
     }
 
     /// <summary>
@@ -39,9 +39,9 @@ public partial struct Bool3
     /// <param name="yz">The value to assign to the second and thirt vector components.</param>
     public Bool3(bool x, Bool2 yz)
     {
-        this.x = x ? 1 : 0;
-        this.y = yz.X ? 1 : 0;
-        this.z = yz.Y ? 1 : 0;
+        this.k = x ? 1 : 0;
+        this.j = yz.X ? 1 : 0;
+        this.k = yz.Y ? 1 : 0;
     }
 
     /// <summary>
