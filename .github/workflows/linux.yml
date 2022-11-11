@@ -41,5 +41,5 @@ jobs:
     - name: BuildAOT
       working-directory: ./SakuraShaderLanguage
       run: |
-        dotnet publish SKSLC/SKSLC.csproj -f net7.0 -r win-x64 -c Release
-        dotnet publish SKSLC.App/SKSLC.App.csproj -f net7.0 -r win-x64 -c Release
+        dotnet publish SKSLC/SKSLC.csproj -f net7.0 -r linux-x64 -c Release
+        dotnet publish SKSLC.App/SKSLC.App.csproj -f net7.0 -r linux-x64 -c Release
