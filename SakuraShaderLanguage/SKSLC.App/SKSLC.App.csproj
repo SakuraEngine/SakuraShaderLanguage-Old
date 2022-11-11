@@ -13,6 +13,10 @@
         <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
+	<PropertyGroup>
+		<PublishAot>true</PublishAot>
+	</PropertyGroup>
+
 	<ItemGroup>
 	  <ProjectReference Include="..\SKSLC\SKSLC.csproj" />
 	</ItemGroup>

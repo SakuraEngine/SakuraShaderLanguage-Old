@@ -40,4 +40,6 @@ jobs:
       run: dotnet restore
     - name: BuildAOT
       working-directory: ./SakuraShaderLanguage
-      run: dotnet publish -r win-x64 -c Release
+      run: |
+        dotnet publish SKSLC/SKSLC.csproj -f net7.0 -r win-x64 -c Release
+        dotnet publish SKSLC.App/SKSLC.App.csproj -f net7.0 -r win-x64 -c Release

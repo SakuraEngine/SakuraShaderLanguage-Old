@@ -1,3 +1,3 @@
 ﻿using SKSLC;
 
-SKSLC.SKSLC.WramUp();
+SKSLC.SKSLC.WarmUp();
