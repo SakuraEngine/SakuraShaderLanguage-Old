@@ -1,0 +1,603 @@
+﻿<#@include file="..\Intrinsics\Hlsl.MulOverloads.ttinclude" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".g.cs"#>
+<#
+// Generates all matrix members and types for a given HLSL type
+void GenerateAllMatrixProperties(string typeName, int elementSize)
+{
+#>
+using System.Diagnostics.CodeAnalysis;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+<#
+    if (typeName == "Float" || typeName == "Int")
+    {
+        WriteLine("using SKSL.Core.Intrinsics.Attributes;");
+    }
+#>
+#if !NET6_0_OR_GREATER
+using RuntimeHelpers = SKSL.Core.NetStandard.System.Runtime.CompilerServices.RuntimeHelpers;
+#endif
+
+#pragma warning disable CS0660, CS0661
+
+namespace SKSL;
+
+<#
+    for (int rows = 1; rows <= 4; rows++)
+    for (int columns = 1; columns <= 4; columns++)
+    {
+        if (rows > 1 || columns > 1) WriteLine("");
+
+        GenerateMatrixProperties(typeName, rows, columns, elementSize);
+    }
+}
+
+// Generates all vector access properties for a specified type
+void GenerateMatrixProperties(string typeName, int rows, int columns, int elementSize)
+{
+    string elementTypeName = typeName.ToLower();
+    bool isBoolType = elementTypeName == "bool";
+    string fieldElementTypeName = isBoolType ? "int" : elementTypeName;
+    string fullTypeName = $"{typeName}{rows}x{columns}";
+    string rowTypeName = columns > 1 ? $"{typeName}{columns}" : elementTypeName;
+    List<string> fieldNames = new List<string>();
+#>
+/// <inheritdoc cref="<#=fullTypeName#>"/>
+[StructLayout(LayoutKind.Explicit, Size = <#=(elementSize * rows * columns)#>, Pack = <#=elementSize#>)]
+public unsafe partial struct <#=fullTypeName#>
+{
+    /// <summary>
+    /// A private buffer to which the undefined properties will point to.
+    /// </summary>
+    private static readonly void* UndefinedData = (void*)RuntimeHelpers.AllocateTypeAssociatedMemory(typeof(<#=fullTypeName#>), sizeof(<#=typeName#>4));
+<#
+    WriteLine("");
+    PushIndent("    ");
+
+    // Generate the private fields
+    for (int i = 1; i <= rows; i++)
+    for (int j = 1; j <= columns; j++)
+    {
+        WriteLine($"[FieldOffset({((i - 1) * columns + j - 1) * elementSize})]");
+        WriteLine($"private {fieldElementTypeName} m{i}{j};");
+        WriteLine("");
+
+        fieldNames.Add($"m{i}{j}");
+    }
+
+    // Generate the elementwise constructor
+    WriteLine("/// <summary>");
+    WriteLine($"/// Creates a new <see cref=\"{fullTypeName}\"/> instance with the specified parameters.");
+    WriteLine("/// </summary>");
+
+    for (int i = 1; i <= rows; i++)
+    for (int j = 1; j <= columns; j++)
+    {
+        WriteLine($"/// <param name=\"m{i}{j}\">The value to assign to the component at position [{i}, {j}].</param>");
+    }
+
+    WriteLine($"public {fullTypeName}({string.Join(", ", fieldNames.Select(n => $"{elementTypeName} {n}"))})");
+    WriteLine("{");
+    PushIndent("    ");
+
+    foreach (string fieldName in fieldNames)
+    {
+        if (isBoolType)
+        {
+            // For bools, normalize from bool to int
+            WriteLine($"this.{fieldName} = {fieldName} ? 1 : 0;");
+        }
+        else
+        {
+            WriteLine($"this.{fieldName} = {fieldName};");
+        }
+    }
+
+    PopIndent();
+    WriteLine("}");
+    WriteLine("");
+
+    // Generate the row-wise constructor, if needed
+    if (rows > 1 && columns > 1)
+    {
+        WriteLine("/// <summary>");
+        WriteLine($"/// Creates a new <see cref=\"{fullTypeName}\"/> instance with the specified parameters.");
+        WriteLine("/// </summary>");
+
+        for (int i = 1; i <= rows; i++)
+        {
+            WriteLine($"/// <param name=\"row{i}\">The value to assign to the row at position [{i}].</param>");
+        }
+
+        Write($"public {fullTypeName}(");
+
+        for (int i = 1; i <= rows; i++)
+        {
+            if (i > 1) Write(", ");
+            Write($"{rowTypeName} row{i}");
+        }
+
+        WriteLine(")");
+        WriteLine("{");
+        PushIndent("    ");
+
+        for (int i = 1; i <= rows; i++)
+        for (int j = 1; j <= columns; j++)
+        {
+            if (isBoolType)
+            {
+                // Also normalize bools here as well
+                WriteLine($"this.m{i}{j} = row{i}.{"XYZW"[j - 1]} ? 1 : 0;");
+            }
+            else
+            {
+                WriteLine($"this.m{i}{j} = row{i}.{"XYZW"[j - 1]};");
+            }
+        }
+
+        PopIndent();
+        WriteLine("}");
+        WriteLine("");
+    }
+
+    PopIndent();
+#>
+    /// <summary>
+    /// Gets a reference to a specific row in the current <see cref="<#=fullTypeName#>"/> instance.
+    /// </summary>
+    /// <param name="row">The row to access.</param>
+    /// <remarks>
+    /// <para>Unlike with vector types, these properties cannot validate in advance which combinations are writeable, so callers should ensure proper use.</para>
+    /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
+    /// </remarks>
+    [UnscopedRef]
+    public ref <#=rowTypeName#> this[int row] => ref *(<#=rowTypeName#>*)UndefinedData;
+
+    /// <summary>
+    /// Gets a swizzled reference to a specific sequence of items in the current <see cref="<#=fullTypeName#>"/> instance.
+    /// </summary>
+    /// <param name="xy0">The identifier of the first item to index.</param>
+    /// <param name="xy1">The identifier of the second item to index.</param>
+    /// <remarks>
+    /// <para>Unlike with vector types, these properties cannot validate in advance which combinations are writeable, so callers should ensure proper use.</para>
+    /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
+    /// </remarks>
+    [UnscopedRef]
+    public ref <#=typeName#>2 this[MatrixIndex xy0, MatrixIndex xy1] => ref *(<#=typeName#>2*)UndefinedData;
+        
+    /// <summary>
+    /// Gets a swizzled reference to a specific sequence of items in the current <see cref="<#=fullTypeName#>"/> instance.
+    /// </summary>
+    /// <param name="xy0">The identifier of the first item to index.</param>
+    /// <param name="xy1">The identifier of the second item to index.</param>
+    /// <param name="xy2">The identifier of the third item to index.</param>
+    /// <remarks>
+    /// <para>Unlike with vector types, these properties cannot validate in advance which combinations are writeable, so callers should ensure proper use.</para>
+    /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
+    /// </remarks>
+    [UnscopedRef]
+    public ref <#=typeName#>3 this[MatrixIndex xy0, MatrixIndex xy1, MatrixIndex xy2] => ref *(<#=typeName#>3*)UndefinedData;
+        
+    /// <summary>
+    /// Gets a swizzled reference to a specific sequence of items in the current <see cref="<#=fullTypeName#>"/> instance.
+    /// </summary>
+    /// <param name="xy0">The identifier of the first item to index.</param>
+    /// <param name="xy1">The identifier of the second item to index.</param>
+    /// <param name="xy2">The identifier of the third item to index.</param>
+    /// <param name="xy3">The identifier of the fourth item to index.</param>
+    /// <remarks>
+    /// <para>Unlike with vector types, these properties cannot validate in advance which combinations are writeable, so callers should ensure proper use.</para>
+    /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
+    /// </remarks>s
+    [UnscopedRef]
+    public ref <#=typeName#>4 this[MatrixIndex xy0, MatrixIndex xy1, MatrixIndex xy2, MatrixIndex xy3] => ref *(<#=typeName#>4*)UndefinedData;
+<#
+    for (int i = 1; i <= rows; i++)
+    for (int j = 1; j <= columns; j++)
+    {
+        WriteLine("");
+#>
+    /// <summary>
+    /// Gets a reference to the <see cref="<#=elementTypeName#>"/> value representing the component at position [<#=i#>, <#=j#>].
+    /// </summary>
+<#
+    if (isBoolType)
+    {
+#>
+    [UnscopedRef]
+    public ref <#=elementTypeName#> M<#=i#><#=j#> => ref Unsafe.As<int, bool>(ref this.m<#=i#><#=j#>);
+<#
+    }
+    else
+    {
+#>
+    [UnscopedRef]
+    public ref <#=elementTypeName#> M<#=i#><#=j#> => ref this.m<#=i#><#=j#>;
+<#
+    }
+#>
+<#
+    }
+
+    WriteLine("");
+#>
+    /// <summary>
+    /// Creates a new <see cref="<#=fullTypeName#>"/> value with the same value for all its components.
+    /// </summary>
+    /// <param name="x">The value to use for the components of the new <see cref="<#=fullTypeName#>"/> instance.</param>
+    public static implicit operator <#=fullTypeName#>(<#=elementTypeName#> x)
+<#
+    // Complete the conversion operator above
+    PushIndent("    ");
+    WriteLine("{");
+    PushIndent("    ");
+    WriteLine($"{fullTypeName} matrix;");
+    WriteLine("");
+
+    for (int i = 1; i <= rows; i++)
+    for (int j = 1; j <= columns; j++)
+    {
+        if (isBoolType)
+        {
+            WriteLine($"matrix.m{i}{j} = x ? 1 : 0;");
+        }
+        else
+        {
+            WriteLine($"matrix.m{i}{j} = x;");
+        }
+    }
+
+    WriteLine("");
+    WriteLine("return matrix;");
+
+    PopIndent();
+    WriteLine("}");
+    PopIndent();
+
+    // Generate the negation operator
+    if (typeName != "UInt")
+    {
+        WriteLine("");
+
+        string operatorName = typeName == "Bool" ? "!" : "-";
+#>
+    /// <summary>
+    /// Negates a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="matrix">The <see cref="<#=fullTypeName#>"/> value to negate.</param>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator <#=operatorName#>(<#=fullTypeName#> matrix) => default;
+<#
+    }
+
+    // Generate the numerical operators
+    if (typeName != "Bool")
+    {
+        WriteLine("");
+#>
+    /// <summary>
+    /// Sums two <see cref="<#=fullTypeName#>"/> values.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to sum.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to sum.</param>
+    /// <returns>The result of adding <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator +(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Divides two <see cref="<#=fullTypeName#>"/> values (elementwise division).
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to divide.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to divide.</param>
+    /// <returns>The result of dividing <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator /(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Calculates the remainder of the division between two <see cref="<#=fullTypeName#>"/> values.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to divide.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to divide.</param>
+    /// <returns>The remainder of dividing <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator %(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Multiplies two <see cref="<#=fullTypeName#>"/> values (elementwise product).
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to multiply.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to multiply.</param>
+    /// <returns>The result of multiplying <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator *(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+<#
+    if (typeName == "Float" || typeName == "Int")
+    {
+        // Add explicit operators when needed, see notes in VectorType.ttinclude for info
+        WriteLine("");
+#>
+    /// <summary>
+    /// Multiplies a pair of <see cref="<#=fullTypeName#>"/> and <see cref="<#=elementTypeName#>"/> values.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to multiply.</param>
+    /// <param name="right">The <see cref="<#=elementTypeName#>"/> value to multiply.</param>
+    /// <returns>The result of multiplying <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator *(<#=fullTypeName#> left, <#=elementTypeName#> right) => default;
+
+    /// <summary>
+    /// Multiplies a pair of <see cref="<#=elementTypeName#>"/> and <see cref="<#=fullTypeName#>"/> values.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=elementTypeName#>"/> value to multiply.</param>
+    /// <param name="right">The <see cref="<#=fullTypeName#>"/> value to multiply.</param>
+    /// <returns>The result of multiplying <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator *(<#=elementTypeName#> left, <#=fullTypeName#> right) => default;
+<#
+
+        // Process all operators for the mul() intrinsic (see comments in VectorType.ttinclude for info on the filters below)
+        foreach (var mulOverload in MulOverloads.Where(overload =>
+            !(overload.Params[0] == fullTypeName && overload.Params[1] == fullTypeName) &&
+            Regex.IsMatch(overload.Params[0], @"\d") &&
+            Regex.IsMatch(overload.Params[1], @"\d") &&
+            (overload.Return == fullTypeName && overload.Params.Contains(fullTypeName) ||
+             !overload.Params.Contains(overload.Return) && overload.Params[0] == fullTypeName)))
+        {
+            WriteLine("");
+#>
+    /// <summary>
+    /// Multiplies two values using matrix math.
+    /// </summary>
+    /// <param name="x">The first <#=mulOverload.Params[0]#> input value.</param>
+    /// <param name="y">The second <#=mulOverload.Params[1]#> input value.</param>
+    /// <returns>The result of <paramref name="x"/> times <paramref name="y"/>. The result has the dimension <paramref name="x"/>-rows by <paramref name="y"/>-columns.</returns>
+    /// <remarks>
+    /// <para>This operator is equivalent to using <see cref="Hlsl.Mul(<#=mulOverload.Params[0]#>, <#=mulOverload.Params[1]#>)"/> with the same input arguments.</para>
+    /// <para>For more info, see <see href="https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-mul"/>.</para>
+    /// <para>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</para>
+    /// </remarks>
+    [HlslIntrinsicName("mul", RequiresParametersMatching = true)]
+    public static <#=mulOverload.Return#> operator *(<#=mulOverload.Params[0]#> x, <#=mulOverload.Params[1]#> y) => default;
+<#
+        }
+    }
+
+    WriteLine("");
+#>
+    /// <summary>
+    /// Subtracts two <see cref="<#=fullTypeName#>"/> values.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to subtract.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to subtract.</param>
+    /// <returns>The result of subtracting <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator -(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Compares two <see cref="<#=fullTypeName#>"/> values to see if the first is greater than the second.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <returns>The result of comparing <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static Bool<#=rows#>x<#=columns#> operator >(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Compares two <see cref="<#=fullTypeName#>"/> values to see if the first is greater than or equal to the second.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <returns>The result of comparing <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static Bool<#=rows#>x<#=columns#> operator >=(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Compares two <see cref="<#=fullTypeName#>"/> values to see if the first is lower than the second.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <returns>The result of comparing <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static Bool<#=rows#>x<#=columns#> operator <(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Compares two <see cref="<#=fullTypeName#>"/> values to see if the first is lower than or equal to the second.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <returns>The result of comparing <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static Bool<#=rows#>x<#=columns#> operator <=(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+<#
+    }
+
+    // Generate the bitwise operators
+    if (typeName == "Int" || typeName == "UInt")
+    {
+        WriteLine("");
+#>
+    /// <summary>
+    /// Bitwise negates a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="matrix">The <see cref="<#=fullTypeName#>"/> value to bitwise negate.</param>
+    /// <returns>The bitwise negated value of <paramref name="matrix"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator ~(<#=fullTypeName#> matrix) => default;
+
+    /// <summary>
+    /// Shifts right a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="matrix">The <see cref="<#=fullTypeName#>"/> value to shift right.</param>
+    /// <param name="amount">The amount to shift each element right by.</param>
+    /// <returns>The result of shifting <paramref name="matrix"/> right by <paramref name="amount"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator >>(<#=fullTypeName#> matrix, Int<#=rows#>x<#=columns#> amount) => default;
+
+    /// <summary>
+    /// Shifts right a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="matrix">The <see cref="<#=fullTypeName#>"/> value to shift right.</param>
+    /// <param name="amount">The amount to shift each element right by.</param>
+    /// <returns>The result of shifting <paramref name="matrix"/> right by <paramref name="amount"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator >>(<#=fullTypeName#> matrix, UInt<#=rows#>x<#=columns#> amount) => default;
+
+    /// <summary>
+    /// Shifts left a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="matrix">The <see cref="<#=fullTypeName#>"/> value to shift left.</param>
+    /// <param name="amount">The amount to shift each element left by.</param>
+    /// <returns>The result of shifting <paramref name="matrix"/> left by <paramref name="amount"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator <<(<#=fullTypeName#> matrix, Int<#=rows#>x<#=columns#> amount) => default;
+
+    /// <summary>
+    /// Shifts left a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="matrix">The <see cref="<#=fullTypeName#>"/> value to shift left.</param>
+    /// <param name="amount">The amount to shift each element left by.</param>
+    /// <returns>The result of shifting <paramref name="matrix"/> left by <paramref name="amount"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator <<(<#=fullTypeName#> matrix, UInt<#=rows#>x<#=columns#> amount) => default;
+
+    /// <summary>
+    /// Bitwise ands a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to bitwise and.</param>
+    /// <param name="right">The <see cref="Int<#=rows#>x<#=columns#>"/> value to combine.</param>
+    /// <returns>The result of performing the bitwise and between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator &(<#=fullTypeName#> left, Int<#=rows#>x<#=columns#> right) => default;
+
+    /// <summary>
+    /// Bitwise ands a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to bitwise and.</param>
+    /// <param name="right">The <see cref="UInt<#=rows#>x<#=columns#>"/> value to combine.</param>
+    /// <returns>The result of performing the bitwise and between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator &(<#=fullTypeName#> left, UInt<#=rows#>x<#=columns#> right) => default;
+
+    /// <summary>
+    /// Bitwise ors a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to bitwise or.</param>
+    /// <param name="right">The <see cref="Int<#=rows#>x<#=columns#>"/> value to combine.</param>
+    /// <returns>The result of performing the bitwise or between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator |(<#=fullTypeName#> left, Int<#=rows#>x<#=columns#> right) => default;
+
+    /// <summary>
+    /// Bitwise ors a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to bitwise or.</param>
+    /// <param name="right">The <see cref="UInt<#=rows#>x<#=columns#>"/> value to combine.</param>
+    /// <returns>The result of performing the bitwise or between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator |(<#=fullTypeName#> left, UInt<#=rows#>x<#=columns#> right) => default;
+
+    /// <summary>
+    /// Bitwise xors a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to bitwise xor.</param>
+    /// <param name="right">The <see cref="Int<#=rows#>x<#=columns#>"/> value to combine.</param>
+    /// <returns>The result of performing the bitwise xor between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator ^(<#=fullTypeName#> left, Int<#=rows#>x<#=columns#> right) => default;
+
+    /// <summary>
+    /// Bitwise xors a <see cref="<#=fullTypeName#>"/> value.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to bitwise xor.</param>
+    /// <param name="right">The <see cref="UInt<#=rows#>x<#=columns#>"/> value to combine.</param>
+    /// <returns>The result of performing the bitwise xor between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator ^(<#=fullTypeName#> left, UInt<#=rows#>x<#=columns#> right) => default;
+<#
+    }
+    else if (typeName == "Bool")
+    {
+        WriteLine("");
+#>
+    /// <summary>
+    /// Ands two <see cref="<#=fullTypeName#>"/> values.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to and.</param>
+    /// <param name="right">The <see cref="<#=fullTypeName#>"/> value to combine.</param>
+    /// <returns>The result of performing the and between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator &(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Ors two <see cref="<#=fullTypeName#>"/> values.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to or.</param>
+    /// <param name="right">The <see cref="<#=fullTypeName#>"/> value to combine.</param>
+    /// <returns>The result of performing the or between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator |(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Xors two <see cref="<#=fullTypeName#>"/> values.
+    /// </summary>
+    /// <param name="left">The <see cref="<#=fullTypeName#>"/> value to xor.</param>
+    /// <param name="right">The <see cref="<#=fullTypeName#>"/> value to combine.</param>
+    /// <returns>The result of performing the xor between <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static <#=fullTypeName#> operator ^(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+<#
+    }
+
+    WriteLine("");
+#>
+    /// <summary>
+    /// Compares two <see cref="<#=fullTypeName#>"/> values to see if they are equal.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <returns>The result of comparing <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static Bool<#=rows#>x<#=columns#> operator ==(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+
+    /// <summary>
+    /// Compares two <see cref="<#=fullTypeName#>"/> values to see if they are not equal.
+    /// </summary>
+    /// <param name="left">The first <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <param name="right">The second <see cref="<#=fullTypeName#>"/> value to compare.</param>
+    /// <returns>The result of comparing <paramref name="left"/> and <paramref name="right"/>.</returns>
+    /// <remarks>This method is an intrinsic and can only be used within a shader on the GPU. Using it on the CPU is undefined behavior.</remarks>
+    public static Bool<#=rows#>x<#=columns#> operator !=(<#=fullTypeName#> left, <#=fullTypeName#> right) => default;
+<#
+    // Generate the casting operators for row/column vectors
+    if (rows == 1 && columns > 1)
+    {
+        WriteLine("");
+#>
+    /// <summary>
+    /// Casts a <see cref="<#=typeName#><#=columns#>"/> value to a <see cref="<#=fullTypeName#>"/> one.
+    /// </summary>
+    /// <param name="vector">The input <see cref="<#=typeName#><#=columns#>"/> value to cast.</param>
+    public static implicit operator <#=fullTypeName#>(<#=typeName#><#=columns#> vector) => *(<#=fullTypeName#>*)&vector;
+<#
+    }
+
+    if (columns == 1 && rows > 1)
+    {
+        WriteLine("");
+#>
+    /// <summary>
+    /// Casts a <see cref="<#=fullTypeName#>"/> value to a <see cref="<#=typeName#><#=rows#>"/> one.
+    /// </summary>
+    /// <param name="matrix">The input <see cref="<#=fullTypeName#>"/> value to cast.</param>
+    public static implicit operator <#=typeName#><#=rows#>(<#=fullTypeName#> matrix) => *(<#=typeName#><#=rows#>*)&matrix;
+<#
+    }
+#>
+}
+<#
+}
+#>

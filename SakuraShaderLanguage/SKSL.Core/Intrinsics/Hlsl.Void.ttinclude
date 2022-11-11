@@ -1,0 +1,349 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".g.cs"#>
+<#
+var Intrinsics = new[]
+{
+    new
+    {
+        Name = "Abort",
+        HlslName = "abort",
+        Summary = "Submits an error message to the information queue and terminates the current draw or dispatch call being executed.",
+        Remarks = "This operation does nothing on rasterizers that do not support it.",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/abort",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = false, Name = "", Info = "" }
+        },
+        Overloads = new[] { new string[0] }
+    },
+    new
+    {
+        Name = "Clip",
+        HlslName = "clip",
+        Summary = "Discards the current pixel if the specified value is less than zero.",
+        Remarks = @"
+            <para>Use the clip HLSL intrinsic function to simulate clipping planes if each component of the x parameter represents the distance from a plane.</para>
+            <para>Also, use the clip function to test for alpha behavior, as shown in the following example:</para>
+            <code>
+            Hlsl.Clip(color.A &lt; 0.1f ? -1 : 1);
+            </code>",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/dx-graphics-hlsl-clip",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = false, Name = "x", Info = "The specified value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "float" },
+            new[] { "Float2" },
+            new[] { "Float3" },
+            new[] { "Float4" },
+            new[] { "Float1x1" },
+            new[] { "Float1x2" },
+            new[] { "Float1x3" },
+            new[] { "Float1x4" },
+            new[] { "Float2x1" },
+            new[] { "Float2x2" },
+            new[] { "Float2x3" },
+            new[] { "Float2x4" },
+            new[] { "Float3x1" },
+            new[] { "Float3x2" },
+            new[] { "Float3x3" },
+            new[] { "Float3x4" },
+            new[] { "Float4x1" },
+            new[] { "Float4x2" },
+            new[] { "Float4x3" },
+            new[] { "Float4x4" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedAdd",
+        HlslName = "InterlockedAdd",
+        Summary = "Performs a guaranteed atomic add of a value to a destination.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedadd",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int" },
+            new[] { "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedAdd",
+        HlslName = "InterlockedAdd",
+        Summary = "Performs a guaranteed atomic add of a value to a destination.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedadd",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." },
+            new { IsOut = true, IsRef = false, Name = "original", Info = "The original input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int" },
+            new[] { "uint", "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedAnd",
+        HlslName = "InterlockedAnd",
+        Summary = "Performs a guaranteed atomic and of a value to a destination.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedand",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int" },
+            new[] { "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedAnd",
+        HlslName = "InterlockedAnd",
+        Summary = "Performs a guaranteed atomic and of a value to a destination.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedand",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." },
+            new { IsOut = true, IsRef = false, Name = "original", Info = "The original input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int" },
+            new[] { "uint", "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedCompareExchange",
+        HlslName = "InterlockedCompareExchange",
+        Summary = @"
+            Atomically compares the destination with the comparison value. If they are identical, the destination
+            is overwritten with the input value. The original value is set to the destination's original value.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedcompareexchange",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "comparison", Info = "The comparison value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." },
+            new { IsOut = true, IsRef = false, Name = "original", Info = "The original input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int", "int" },
+            new[] { "uint", "uint", "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedCompareStore",
+        HlslName = "InterlockedCompareStore",
+        Summary = @"
+            Atomically compares the destination to the comparison value. If they
+            are identical, the destination is overwritten with the input value.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedcomparestore",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "comparison", Info = "The comparison value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int" },
+            new[] { "uint", "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedExchange",
+        HlslName = "InterlockedExchange",
+        Summary = "Assigns value to dest and returns the original value.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedexchange",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." },
+            new { IsOut = true, IsRef = false, Name = "original", Info = "The original input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int" },
+            new[] { "uint", "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedMax",
+        HlslName = "InterlockedMax",
+        Summary = "Performs a guaranteed atomic max.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedmax",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int" },
+            new[] { "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedMax",
+        HlslName = "InterlockedMax",
+        Summary = "Performs a guaranteed atomic max.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedmax",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." },
+            new { IsOut = true, IsRef = false, Name = "original", Info = "The original input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int" },
+            new[] { "uint", "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedMin",
+        HlslName = "InterlockedMin",
+        Summary = "Performs a guaranteed atomic min.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedmin",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int" },
+            new[] { "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedMin",
+        HlslName = "InterlockedMin",
+        Summary = "Performs a guaranteed atomic min.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedmin",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." },
+            new { IsOut = true, IsRef = false, Name = "original", Info = "The original input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int" },
+            new[] { "uint", "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedOr",
+        HlslName = "InterlockedOr",
+        Summary = "Performs a guaranteed atomic or.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedor",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int" },
+            new[] { "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedOr",
+        HlslName = "InterlockedOr",
+        Summary = "Performs a guaranteed atomic or.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedor",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." },
+            new { IsOut = true, IsRef = false, Name = "original", Info = "The original input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int" },
+            new[] { "uint", "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedXor",
+        HlslName = "InterlockedXor",
+        Summary = "Performs a guaranteed atomic xor.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedxor",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int" },
+            new[] { "uint", "uint" }
+        }
+    },
+    new
+    {
+        Name = "InterlockedXor",
+        HlslName = "InterlockedXor",
+        Summary = "Performs a guaranteed atomic xor.",
+        Remarks = "",
+        Url = "https://docs.microsoft.com/windows/win32/direct3dhlsl/interlockedxor",
+        Parameters = new[]
+        {
+            new { IsOut = false, IsRef = true, Name = "destination", Info = "The destination value." },
+            new { IsOut = false, IsRef = false, Name = "value", Info = "The input value." },
+            new { IsOut = true, IsRef = false, Name = "original", Info = "The original input value." }
+        },
+        Overloads = new[]
+        {
+            new[] { "int", "int", "int" },
+            new[] { "uint", "uint", "uint" }
+        }
+    }
+};
+#>

@@ -1,0 +1,53 @@
+﻿<Project>
+
+  <!-- Get the analyzer from the SKSL.Core NuGet package -->
+  <Target Name="_SKSLCoreGatherAnalyzers">
+    <ItemGroup>
+      <_SKSLCoreAnalyzer Include="@(Analyzer)" Condition="'%(Analyzer.NuGetPackageId)' == 'SKSL.Core'" />
+    </ItemGroup>
+  </Target>
+
+  <!-- Remove the analyzer if using Roslyn < 4.4 (SKSL.Core's generators require Roslyn 4.4) -->
+  <Target Name="_SKSLCoreRemoveAnalyzersForRoslyn3"
+          Condition="'$(CSharpCoreTargetsPath)' != ''"
+          AfterTargets="ResolvePackageDependenciesForBuild;ResolveNuGetPackageAssets"
+          DependsOnTargets="_SKSLCoreGatherAnalyzers">
+
+    <!-- Use the CSharpCoreTargetsPath property to find the version of the compiler we are using. This is the same mechanism
+         MSBuild uses to find the compiler. We could check the assembly version for any compiler assembly (since they all have
+         the same version) but Microsoft.Build.Tasks.CodeAnalysis.dll is where MSBuild loads the compiler tasks from so if
+         someone is getting creative with msbuild tasks/targets this is the "most correct" assembly to check. -->
+    <GetAssemblyIdentity AssemblyFiles="$([System.IO.Path]::Combine(`$([System.IO.Path]::GetDirectoryName($(CSharpCoreTargetsPath)))`,`Microsoft.Build.Tasks.CodeAnalysis.dll`))">
+      <Output TaskParameter="Assemblies" ItemName="SKSLCoreCurrentCompilerAssemblyIdentity"/>
+    </GetAssemblyIdentity>
+
+    <PropertyGroup>
+
+      <!-- Transform the resulting item from GetAssemblyIdentity into a property representing its assembly version -->
+      <SKSLCoreCurrentCompilerVersion>@(SKSLCoreCurrentCompilerAssemblyIdentity->'%(Version)')</SKSLCoreCurrentCompilerVersion>
+
+      <!-- The CurrentCompilerVersionIsNotNewEnough property can now be defined based on the Roslyn assembly version -->
+      <SKSLCoreCurrentCompilerVersionIsNotNewEnough Condition="$([MSBuild]::VersionLessThan($(SKSLCoreCurrentCompilerVersion), 4.4))">true</SKSLCoreCurrentCompilerVersionIsNotNewEnough>
+    </PropertyGroup>
+
+    <!-- If the Roslyn version is < 4.4, disable the source generators -->
+    <ItemGroup Condition ="'$(SKSLCoreCurrentCompilerVersionIsNotNewEnough)' == 'true'">
+      <Analyzer Remove="@(_SKSLCoreAnalyzer)"/>
+    </ItemGroup>
+
+    <!-- There is no need to emit a warning here, as this package is always a transitive dependency from SKSL, which does emit the warning -->
+  </Target>
+  
+  <!-- Remove the analyzer if Roslyn is missing -->
+  <Target Name="_SKSLCoreRemoveAnalyzersForRosynNotFound"
+          Condition="'$(CSharpCoreTargetsPath)' == ''"
+          AfterTargets="ResolvePackageDependenciesForBuild;ResolveNuGetPackageAssets"
+          DependsOnTargets="_SKSLCoreGatherAnalyzers">
+
+    <!-- If no Roslyn assembly could be found, just remove the analyzer without emitting a warning -->
+    <ItemGroup>
+      <Analyzer Remove="@(_SKSLCoreAnalyzer)"/>
+    </ItemGroup>
+  </Target>
+
+</Project>
