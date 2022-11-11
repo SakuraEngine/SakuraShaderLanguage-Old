@@ -7,7 +7,7 @@ namespace SKSL.Test
         public void Execute()
         {
             var f2 = new float2(1.0f, 2.0f);
-            bool2 b2 = Hlsl.FloatToBool(f2);
+            bool2 b2 = BuiltIn.FloatToBool(f2);
         }
     }
 
