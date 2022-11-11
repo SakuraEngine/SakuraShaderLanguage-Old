@@ -1,4 +1,5 @@
 using System.Threading;
+using SKSLC.Generators;
 
 namespace SKSL.Test
 {

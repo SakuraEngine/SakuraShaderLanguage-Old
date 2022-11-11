@@ -6,10 +6,14 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-     <TargetFramework>net7.0</TargetFramework>
+	 <TargetFramework>net7.0</TargetFramework>
      <ImplicitUsings>enable</ImplicitUsings>
      <Nullable>enable</Nullable>
-     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<LangVersion>11.0</LangVersion>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<!-- T4 template generation service (the .tt/.g.cs files are resolved in the .targets file) -->

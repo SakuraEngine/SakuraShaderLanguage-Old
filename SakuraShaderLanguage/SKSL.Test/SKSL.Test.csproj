@@ -21,4 +21,9 @@
     <ProjectReference Include="..\SKSL\SKSL.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SKSLC.Generators\SKSLC.Generators.csproj"
+				      OutputItemType="Analyzer" ReferenceOutputAssembly="true"/>
+  </ItemGroup>
+
 </Project>
