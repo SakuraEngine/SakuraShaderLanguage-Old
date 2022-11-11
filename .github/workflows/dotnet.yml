@@ -19,32 +19,56 @@ jobs:
       with:
         dotnet-version: 7.0.x
     - name: Restore dependencies
-      working-directory: /SakuraShaderLanguage
+      working-directory: ./SakuraShaderLanguage
       run: dotnet restore
     - name: Build
-      working-directory: /SakuraShaderLanguage
+      working-directory: ./SakuraShaderLanguage
       run: dotnet build --no-restore
     - name: Test
-      working-directory: /SakuraShaderLanguage
+      working-directory: ./SakuraShaderLanguage
       run: dotnet test --no-build --verbosity normal
       
   buildAOTLinux:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      working-directory: ./SakuraShaderLanguage
+      run: dotnet restore
     - name: BuildAOT
-      working-directory: /SakuraShaderLanguage
+      working-directory: ./SakuraShaderLanguage
       run: dotnet publish -r linux-x64 -c Release
       
   buildAOTMacos:
     runs-on: macos-latest
     steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      working-directory: ./SakuraShaderLanguage
+      run: dotnet restore
     - name: BuildAOT
-      working-directory: /SakuraShaderLanguage
+      working-directory: ./SakuraShaderLanguage
       run: dotnet publish -r osx-x64 -c Release
 
   buildAOTWindows:
     runs-on: windows-latest
     steps:
+    - uses: actions/checkout@v3
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 7.0.x
+    - name: Restore dependencies
+      working-directory: ./SakuraShaderLanguage
+      run: dotnet restore
     - name: BuildAOT
-      working-directory: /SakuraShaderLanguage
+      working-directory: ./SakuraShaderLanguage
       run: dotnet publish -r win-x64 -c Release
