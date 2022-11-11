@@ -1,5 +1,4 @@
 using System.Threading;
-using SKSLC.Generators;
 
 namespace SKSL.Test
 {
@@ -10,6 +9,7 @@ namespace SKSL.Test
         private const float HEIGHT = 2400;
         private const float PI = 3.141592653589793238462643383279502f;
 
+        [ShaderMethod]
         public void Execute()
         {
             if (ThreadID.x >= WIDTH || ThreadID.y >= HEIGHT)
@@ -49,6 +49,12 @@ namespace SKSL.Test
     {
         [TestMethod]
         public void TestMethod()
+        {
+
+        }
+
+        [ShaderMethod]
+        public static void Fuck()
         {
 
         }

@@ -16,4 +16,9 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 		</PackageReference>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\SKSL.Core\SKSL.Core.csproj" />
+	  <ProjectReference Include="..\SKSL\SKSL.csproj" />
+	</ItemGroup>
 </Project>

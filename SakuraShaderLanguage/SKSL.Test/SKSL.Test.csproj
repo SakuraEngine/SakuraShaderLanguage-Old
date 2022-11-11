@@ -23,7 +23,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SKSLC.Generators\SKSLC.Generators.csproj"
-				      OutputItemType="Analyzer" ReferenceOutputAssembly="true"/>
+				      OutputItemType="Analyzer" ReferenceOutputAssembly="false"
+					  PrivateAssets="contentfiles;build"/>
   </ItemGroup>
 
 </Project>
