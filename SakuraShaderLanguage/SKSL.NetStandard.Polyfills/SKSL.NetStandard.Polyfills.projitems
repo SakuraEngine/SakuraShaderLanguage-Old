@@ -9,11 +9,11 @@
     <Import_RootNamespace>SKSL.NetStandard.Polyfills</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)Polyfills\InterpolatedStringHandlerArgumentAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Polyfills\InterpolatedStringHandlerAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Polyfills\IsExternalInit.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Polyfills\RuntimeHelpers.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Polyfills\SkipLocalsInitAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Polyfills\UnscopedRefAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\InterpolatedStringHandlerArgumentAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\InterpolatedStringHandlerAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\IsExternalInit.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\RuntimeHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\SkipLocalsInitAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Runtime\UnscopedRefAttribute.cs" />
   </ItemGroup>
 </Project>
