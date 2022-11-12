@@ -25,13 +25,6 @@ namespace SKSLC
             TestWithSimpleComputeShader();
         }
 
-        [UnmanagedCallersOnly(EntryPoint = "SKSLC_Initialize")]
-        static public void _Initialize() => Initialize();
-        [UnmanagedCallersOnly(EntryPoint = "SKSLC_Test")]
-        static public void _Test() => TestWithSimpleComputeShader();
-        [UnmanagedCallersOnly(EntryPoint = "SKSLC_InitializeAndTest")]
-        static public void _InitializeAndTest() => InitializeAndTest();
-
 
         private static void VerifyGeneratedCode<TGenerator>(string source, params string[] diagnosticsIds)
             where TGenerator : class, IIncrementalGenerator, new()
@@ -58,7 +51,6 @@ namespace SKSLC
 
             namespace SKSL.Test
             {
-                [System.Runtime.CompilerServices.SkipLocalsInitAttribute]
                 public class ComputeShader : IComputeShader
                 {
                     private readonly ReadWriteBuffer<float4> output;

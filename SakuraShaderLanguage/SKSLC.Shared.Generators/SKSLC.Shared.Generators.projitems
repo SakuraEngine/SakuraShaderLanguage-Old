@@ -12,6 +12,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\CompilationExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ISymbolExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\ITypeSymbolExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Info\DiagnosticInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Info\DispatchInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Info\FieldInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Info\HashCode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Info\HierarchyInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Info\ShaderMethodInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Info\ShaderEntryInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Info\TypeInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MethodSourceGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\EquatableArray.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utils\ImmutableArrayBuilder{T}.cs" />

@@ -10,7 +10,7 @@ namespace SKSLC.Generators;
 /// <param name="DefinedTypes">The discovered declared types.</param>
 /// <param name="DefinedConstants">The discovered defined constants.</param>
 /// <param name="DependentMethods">The dependent captured methods.</param>
-internal sealed record ShaderMethodSourceInfo(
+internal sealed record ShaderMethodCodeInfo(
     string MetadataName,
     string EntryPoint,
     EquatableArray<(string Name, string Definition)> DefinedTypes,
@@ -23,4 +23,4 @@ internal sealed record ShaderMethodSourceInfo(
 /// </summary>
 /// <param name="HlslMethodSource">The processed HLSL source for the shader method.</param>
 /// <param name="Diagnostcs">The discovered diagnostics, if any.</param>
-internal sealed record ShaderMethodInfo(ShaderMethodSourceInfo HlslMethodSource, EquatableArray<DiagnosticInfo> Diagnostcs);
+internal sealed record ShaderMethodInfo(ShaderMethodCodeInfo HlslMethodSource, EquatableArray<DiagnosticInfo> Diagnostcs);
