@@ -13,6 +13,11 @@ public enum ShaderType
     ComputeShader,
 
     /// <summary>
+    /// A vertex shader.
+    /// </summary>
+    VertexShader,
+
+    /// <summary>
     /// A pixel shader.
     /// </summary>
     PixelShader

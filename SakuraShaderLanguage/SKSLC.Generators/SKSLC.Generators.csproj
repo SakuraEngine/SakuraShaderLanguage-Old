@@ -55,7 +55,13 @@
 		<Compile Include="..\SKSL.Core\Primitives\UInt\UInt4.g.cs" Link="SKSL.Core\Primitives\UInt\UInt4.g.cs" />
 		<Compile Include="..\SKSL.Core\Primitives\UInt\UIntMxN.g.cs" Link="SKSL.Core\Primitives\UInt\UIntMxN.g.cs" />
 		<Compile Include="..\SKSL.Core\Primitives\MatrixIndex.cs" Link="SKSL.Core\Primitives\MatrixIndex.cs" />
-		
+
+		<!-- SKSL APIs -->
+		<Compile Include="..\SKSL\Interfaces\IShader.cs" Link="SKSL\Interfaces\IShader.cs" />
+		<Compile Include="..\SKSL\Interfaces\IComputeShader.cs" Link="SKSL\Interfaces\IComputeShader.cs" />
+		<Compile Include="..\SKSL\Interfaces\IVertexShader.cs" Link="SKSL\Interfaces\IVertexShader.cs" />
+		<Compile Include="..\SKSL\Interfaces\IPixelShader.cs" Link="SKSL\Interfaces\IPixelShader.cs" />
+
 		<!-- SKSL.Core Helpers -->
 		<Compile Include="..\SKSL.Core\Helpers\**.cs" Link="SKSL.Core\Helpers\**.cs" />
 	</ItemGroup>

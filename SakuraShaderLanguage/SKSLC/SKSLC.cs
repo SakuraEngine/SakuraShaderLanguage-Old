@@ -95,7 +95,7 @@ namespace SKSLC
                 }
             }
             """;
-            VerifyGeneratedCode<ShaderMethodSourceGenerator>(source, "CMPS0047", "CMPS0050");
+            VerifyGeneratedCode<ShaderSourceGenerator>(source, "CMPS0047", "CMPS0050");
         }
     }
 }
