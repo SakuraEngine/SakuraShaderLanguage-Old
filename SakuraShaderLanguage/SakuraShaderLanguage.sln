@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKSLC.Generators", "SKSLC.G
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SKSL.NetStandard.Polyfills", "SKSL.NetStandard.Polyfills\SKSL.NetStandard.Polyfills.shproj", "{3EF5A4E6-DD96-4ED7-9C2C-B22647227246}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SKSLC.Shared.Generators", "SKSLC.Shared.Generators\SKSLC.Shared.Generators.shproj", "{C13A7B6C-7756-4715-815B-C18A78374739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,7 +83,11 @@ Global
 		SolutionGuid = {93E52E1A-C101-4213-ADED-09A84D8AF898}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SKSLC.Shared.Generators\SKSLC.Shared.Generators.projitems*{30f8af32-a13c-4eca-a46d-fa7ffbe5412e}*SharedItemsImports = 5
 		SKSL.NetStandard.Polyfills\SKSL.NetStandard.Polyfills.projitems*{3ef5a4e6-dd96-4ed7-9c2c-b22647227246}*SharedItemsImports = 13
 		SKSL.NetStandard.Polyfills\SKSL.NetStandard.Polyfills.projitems*{817ddca9-d52e-4bd1-ab1d-c3966df86cc5}*SharedItemsImports = 5
+		SKSLC.Shared.Generators\SKSLC.Shared.Generators.projitems*{817ddca9-d52e-4bd1-ab1d-c3966df86cc5}*SharedItemsImports = 5
+		SKSLC.Shared.Generators\SKSLC.Shared.Generators.projitems*{c13a7b6c-7756-4715-815b-c18a78374739}*SharedItemsImports = 13
+		SKSLC.Shared.Generators\SKSLC.Shared.Generators.projitems*{f9151dd1-89ca-4289-8299-bc7196bf061d}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal

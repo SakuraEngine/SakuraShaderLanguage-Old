@@ -1,10 +1,12 @@
 using System.Threading;
+using SKSL;
 
 namespace SKSL.Test
 {
     public class ComputeShader : IComputeShader
     {
         private readonly ReadWriteBuffer<float4> output;
+
         private const float WIDTH = 3200;
         private const float HEIGHT = 2400;
         private const float PI = 3.141592653589793238462643383279502f;

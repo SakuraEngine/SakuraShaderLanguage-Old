@@ -1,3 +1,3 @@
 ﻿using SKSLC;
 
-SKSLC.SKSLC.WarmUp();
+SKSLC.SKSLC.InitializeAndTest();

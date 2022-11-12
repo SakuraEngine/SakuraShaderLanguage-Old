@@ -60,6 +60,9 @@
 		<Compile Include="..\SKSL.Core\Helpers\**.cs" Link="SKSL.Core\Helpers\**.cs" />
 	</ItemGroup>
 
+	<!-- Shared project with generators -->
+	<Import Project="..\SKSLC.Shared.Generators\SKSLC.Shared.Generators.projitems" Label="Shared" />
+
 	<!-- Shared project with .NET Standard 2.0 polyfills -->
 	<Import Project="..\SKSL.NetStandard.Polyfills\SKSL.NetStandard.Polyfills.projitems" Label="Shared" />
 

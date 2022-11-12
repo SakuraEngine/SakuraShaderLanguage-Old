@@ -14,10 +14,18 @@ using Microsoft.CodeAnalysis.Text;
 namespace SKSLC.Generators;
 
 [Generator]
-public sealed partial class ShaderMethodCommentGenerator : IIncrementalGenerator
+public sealed partial class ShaderMethodSourceGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
+        // Check whether [SkipLocalsInit] can be used
+        // C# 9 - Improving performance using the SkipLocalsInit attribute
+        IncrementalValueProvider<bool> canUseSkipLocalsInit =
+            context.CompilationProvider
+            .Select(static (compilation, _) =>
+                compilation.Options is CSharpCompilationOptions { AllowUnsafe: true } &&
+                compilation.HasAccessibleTypeWithMetadataName("System.Runtime.CompilerServices.SkipLocalsInitAttribute"));
+
         // Get all declared methods (including global function declarations) with the [ShaderMethod] attribute, and their info
         IncrementalValuesProvider<string> methodNames =
             context.SyntaxProvider
@@ -30,10 +38,18 @@ public sealed partial class ShaderMethodCommentGenerator : IIncrementalGenerator
                     return methodSymbol.Name;
                 });
 
+        // Get the LoadDispatchMetadata() info (hierarchy and dispatch metadata info)
+        IncrementalValuesProvider<(string MethodName, bool CanUseSkipLocalsInit)> dispatchMetadataInfo =
+            methodNames
+            .Select(static (item, _) => item)
+            .Combine(canUseSkipLocalsInit);
+
         // Generate the [ShaderMethodSource] attributes
-        context.RegisterSourceOutput(methodNames, static (context, item) =>
+        context.RegisterSourceOutput(dispatchMetadataInfo, static (context, data) =>
         {
-            context.AddSource($"{item}.g.cs", $"// Name: {item}");
+            context.AddSource($"{data.MethodName}.g.cs", 
+                $"// Support Skip Local Attrs: {data.CanUseSkipLocalsInit}\n" +
+                $"// Name: {data.MethodName}");
         });
     }
 }

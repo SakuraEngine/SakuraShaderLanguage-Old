@@ -15,10 +15,15 @@
 
 	<PropertyGroup>
 		<PublishAot>true</PublishAot>
+		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\SKSL.Core\SKSL.Core.csproj" />
 	  <ProjectReference Include="..\SKSLC\SKSLC.csproj" />
+	  <ProjectReference Include="..\SKSL\SKSL.csproj" />
 	</ItemGroup>
+
+	<Import Project="..\SKSLC.Shared.Generators\SKSLC.Shared.Generators.projitems" Label="Shared" />
 
 </Project>
