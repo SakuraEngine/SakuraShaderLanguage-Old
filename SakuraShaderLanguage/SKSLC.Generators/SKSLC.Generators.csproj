@@ -10,6 +10,60 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+		<!-- SKSL.Core APIs -->
+		<Compile Include="..\SKSL.Core\Attributes\ShaderMethodAttribute.cs" Link="SKSL.Core\Attributes\ShaderMethodAttribute.cs" />
+		<Compile Include="..\SKSL.Core\Exceptions\InvalidExecutionContextException.cs" Link="SKSL.Core\Exceptions\InvalidExecutionContextException.cs" />
+		<Compile Include="..\SKSL.Core\Intrinsics\Attributes\BuiltInIntrinsicNameAttribute.cs" Link="SKSL.Core\Intrinsics\Attributes\BuiltInIntrinsicNameAttribute.cs" />
+		<Compile Include="..\SKSL.Core\Intrinsics\BuiltIn.Casts.g.cs" Link="SKSL.Core\Intrinsics\BuiltIn.Casts.g.cs" />
+		<Compile Include="..\SKSL.Core\Intrinsics\BuiltIn.cs" Link="SKSL.Core\Intrinsics\BuiltIn.cs" />
+		<Compile Include="..\SKSL.Core\Intrinsics\BuiltIn.g.cs" Link="SKSL.Core\Intrinsics\BuiltIn.g.cs" />
+		<Compile Include="..\SKSL.Core\Intrinsics\BuiltIn.Void.g.cs" Link="SKSL.Core\Intrinsics\BuiltIn.Void.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Bool\Bool.cs" Link="SKSL.Core\Primitives\Bool\Bool.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Bool\Bool2.cs" Link="SKSL.Core\Primitives\Bool\Bool2.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Bool\Bool3.cs" Link="SKSL.Core\Primitives\Bool\Bool3.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Bool\Bool4.cs" Link="SKSL.Core\Primitives\Bool\Bool4.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Bool\Bool2.g.cs" Link="SKSL.Core\Primitives\Bool\Bool2.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Bool\Bool3.g.cs" Link="SKSL.Core\Primitives\Bool\Bool3.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Bool\Bool4.g.cs" Link="SKSL.Core\Primitives\Bool\Bool4.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Bool\BoolMxN.g.cs" Link="SKSL.Core\Primitives\Bool\BoolMxN.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Double\Double2.cs" Link="SKSL.Core\Primitives\Double\Double2.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Double\Double3.cs" Link="SKSL.Core\Primitives\Double\Double3.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Double\Double4.cs" Link="SKSL.Core\Primitives\Double\Double4.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Double\Double2.g.cs" Link="SKSL.Core\Primitives\Double\Double2.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Double\Double3.g.cs" Link="SKSL.Core\Primitives\Double\Double3.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Double\Double4.g.cs" Link="SKSL.Core\Primitives\Double\Double4.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Double\DoubleMxN.g.cs" Link="SKSL.Core\Primitives\Double\DoubleMxN.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Float\Float2.cs" Link="SKSL.Core\Primitives\Float\Float2.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Float\Float3.cs" Link="SKSL.Core\Primitives\Float\Float3.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Float\Float4.cs" Link="SKSL.Core\Primitives\Float\Float4.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Float\Float2.g.cs" Link="SKSL.Core\Primitives\Float\Float2.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Float\Float3.g.cs" Link="SKSL.Core\Primitives\Float\Float3.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Float\Float4.g.cs" Link="SKSL.Core\Primitives\Float\Float4.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Float\FloatMxN.g.cs" Link="SKSL.Core\Primitives\Float\FloatMxN.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Int\Int2.cs" Link="SKSL.Core\Primitives\Int\Int2.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Int\Int3.cs" Link="SKSL.Core\Primitives\Int\Int3.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Int\Int4.cs" Link="SKSL.Core\Primitives\Int\Int4.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Int\Int2.g.cs" Link="SKSL.Core\Primitives\Int\Int2.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Int\Int3.g.cs" Link="SKSL.Core\Primitives\Int\Int3.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Int\Int4.g.cs" Link="SKSL.Core\Primitives\Int\Int4.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\Int\IntMxN.g.cs" Link="SKSL.Core\Primitives\Int\IntMxN.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\UInt\UInt2.cs" Link="SKSL.Core\Primitives\UInt\UInt2.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\UInt\UInt3.cs" Link="SKSL.Core\Primitives\UInt\UInt3.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\UInt\UInt4.cs" Link="SKSL.Core\Primitives\UInt\UInt4.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\UInt\UInt2.g.cs" Link="SKSL.Core\Primitives\UInt\UInt2.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\UInt\UInt3.g.cs" Link="SKSL.Core\Primitives\UInt\UInt3.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\UInt\UInt4.g.cs" Link="SKSL.Core\Primitives\UInt\UInt4.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\UInt\UIntMxN.g.cs" Link="SKSL.Core\Primitives\UInt\UIntMxN.g.cs" />
+		<Compile Include="..\SKSL.Core\Primitives\MatrixIndex.cs" Link="SKSL.Core\Primitives\MatrixIndex.cs" />
+		
+		<!-- SKSL.Core Helpers -->
+		<Compile Include="..\SKSL.Core\Helpers\**.cs" Link="SKSL.Core\Helpers\**.cs" />
+	</ItemGroup>
+
+	<!-- Shared project with .NET Standard 2.0 polyfills -->
+	<Import Project="..\SKSL.NetStandard.Polyfills\SKSL.NetStandard.Polyfills.projitems" Label="Shared" />
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.3.1" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3">
 			<PrivateAssets>all</PrivateAssets>
@@ -17,8 +71,4 @@
 		</PackageReference>
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\SKSL.Core\SKSL.Core.csproj" />
-	  <ProjectReference Include="..\SKSL\SKSL.csproj" />
-	</ItemGroup>
 </Project>

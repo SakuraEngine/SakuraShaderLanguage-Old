@@ -1,5 +1,7 @@
 ﻿namespace SKSL;
 
+#pragma warning disable CS0618
+
 public interface IComputeShader : IShader
 {
     void Execute();

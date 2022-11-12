@@ -52,11 +52,5 @@ namespace SKSL.Test
         {
 
         }
-
-        [ShaderMethod]
-        public static void Fuck()
-        {
-
-        }
     }
 }

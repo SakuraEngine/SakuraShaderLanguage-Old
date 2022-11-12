@@ -9,10 +9,11 @@ using System.Collections.Generic;
 using SKSL;
 using SKSLC.Generators.Utils;
 using System.Text;
+using Microsoft.CodeAnalysis.Text;
 
 namespace SKSLC.Generators;
 
-[Generator(LanguageNames.CSharp)]
+[Generator]
 public sealed partial class ShaderMethodCommentGenerator : IIncrementalGenerator
 {
     public void Initialize(IncrementalGeneratorInitializationContext context)

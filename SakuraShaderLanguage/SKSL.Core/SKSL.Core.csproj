@@ -6,7 +6,7 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-	 <TargetFrameworks>netstandard2.0;net7.0</TargetFrameworks>
+	 <TargetFrameworks>net7.0</TargetFrameworks>
      <ImplicitUsings>enable</ImplicitUsings>
      <Nullable>enable</Nullable>
 	</PropertyGroup>
@@ -15,11 +15,6 @@
 		<LangVersion>11.0</LangVersion>
 		<AllowUnsafeBlocks>True</AllowUnsafeBlocks>
 	</PropertyGroup>
-
-	<!-- .NET Standard 2.0 polyfill packages -->
-	<ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
-		<PackageReference Include="System.Memory" Version="4.5.5" />
-	</ItemGroup>
 
 	<!-- T4 template generation service (the .tt/.g.cs files are resolved in the .targets file) -->
 	<ItemGroup>

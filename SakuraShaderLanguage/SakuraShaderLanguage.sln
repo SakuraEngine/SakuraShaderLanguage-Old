@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKSLC", "SKSLC\SKSLC.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKSL", "SKSL\SKSL.csproj", "{2F2B074D-78A3-4C3C-AAE2-7639CF103D1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SKSLC.Generators", "SKSLC.Generators\SKSLC.Generators.csproj", "{817DDCA9-D52E-4BD1-AB1D-C3966DF86CC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SKSLC.Generators", "SKSLC.Generators\SKSLC.Generators.csproj", "{817DDCA9-D52E-4BD1-AB1D-C3966DF86CC5}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "SKSL.NetStandard.Polyfills", "SKSL.NetStandard.Polyfills\SKSL.NetStandard.Polyfills.shproj", "{3EF5A4E6-DD96-4ED7-9C2C-B22647227246}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,5 +79,9 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {93E52E1A-C101-4213-ADED-09A84D8AF898}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		SKSL.NetStandard.Polyfills\SKSL.NetStandard.Polyfills.projitems*{3ef5a4e6-dd96-4ed7-9c2c-b22647227246}*SharedItemsImports = 13
+		SKSL.NetStandard.Polyfills\SKSL.NetStandard.Polyfills.projitems*{817ddca9-d52e-4bd1-ab1d-c3966df86cc5}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
